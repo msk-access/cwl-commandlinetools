@@ -9,7 +9,8 @@ python:
 install: pip install -U tox-travis
 
 # Command to run tests, e.g. python setup.py test
-script: tox
+script:
+  - find . -name '*.cwl' | xargs -n 1 cwltool --validate
 
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
