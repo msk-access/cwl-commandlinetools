@@ -5,7 +5,7 @@
 | Tool	| Version	| Location	|
 |---	|---	|---	|
 | ubuntu base image  	| 16.04 	|   -	|
-| manta  	| 0.20.1  	|  https://github.com/OpenGene/fastp	|
+| fastp     | 0.20.1  	|  https://github.com/OpenGene/fastp	|
 
 ## CWL
 
@@ -25,7 +25,7 @@
 
 #Using toil-cwl-runner
 > mkdir toil_log
-> toil-cwl-runner --singularity --logFile /path/to/toil_log/cwltoil.log  --jobStore /path/to/jobStore --batchSystem lsf --workDir /path/to =toil_log --outdir . --writeLogs /path/to/toil_log --logLevel DEBUG --stats --retryCount 2 --disableCaching --maxLogFileSize 20000000000 /path/to/manta_1.5.1/manta.1.5.1.cwl /path/to/inputs.yaml > toil.stdout 2> toil.stderr &
+> toil-cwl-runner --singularity --logFile /path/to/toil_log/cwltoil.log  --jobStore /path/to/jobStore --batchSystem lsf --workDir /path/to =toil_log --outdir . --writeLogs /path/to/toil_log --logLevel DEBUG --stats --retryCount 2 --disableCaching --maxLogFileSize 20000000000 /path/to/fastp-0_20_1/fastp-0_20_1.cwl /path/to/inputs.yaml > toil.stdout 2> toil.stderr &
 ```
 
 ### Usage
