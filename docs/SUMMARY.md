@@ -49,6 +49,8 @@
   * [v0.1.7](merge-fastq/merge_fastq_0.1.7.md)
 * [Mosdepth](mosdepth/README.md)
   * [0.3.3](mosdepth/mosdepth_0.3.3.md)
+* [octopus]
+  * [0.7.4](octopus/octopus_0.7.4.md)
 * [Picard Tools](picard-tools/README.md)
   * [AddOrReplaceReadGroups v1.96](picard-tools/picard_add_or_replace_read_groups_1.96.md)
   * [AddOrReplaceReadGroups v2.21.2](picard-tools/picard_add_or_replace_read_groups_2.21.2.md)
