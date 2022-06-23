@@ -1,101 +1,84 @@
-#!/usr/bin/env cwl-runner
-cwlVersion: v1.0
 class: CommandLineTool
-baseCommand:
-- /usr/bin/vardict/bin/VarDict
+cwlVersion: v1.0
+$namespaces:
+  sbg: 'https://www.sevenbridges.com/'
 id: vardict
-
-arguments:
-- position: 1
-  prefix: -b
-  valueFrom: "${\n    return inputs.b.path;\n}"
-# - position: 0
-#   prefix: -N
-#   valueFrom: "${\n    if (inputs.N2)\n        return [inputs.N, inputs.N2];\n    else\n\
-#     \        return inputs.N;\n}"
-
-
-requirements:
-  EnvVarRequirement:
-      envDef:
-        JAVA_OPTS: '"-Xms8g" "-Xmx95g"'
-  InlineJavascriptRequirement: {}
-  ResourceRequirement:
-    coresMin: 4
-    ramMin: 64000
-  DockerRequirement:
-    dockerPull: ghcr.io/msk-access/vardictjava:1.8.2
-
+baseCommand:
+  - /usr/bin/vardict/bin/VarDict
 inputs:
-  G:
+  - id: E
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '-E'
+    doc: 'The column for region end, e.g. gene end'
+  - id: G
     type: File
+    inputBinding:
+      position: 0
+      prefix: '-G'
     doc: The reference fasta. Should be indexed (.fai)
     secondaryFiles:
       - .fai
-    inputBinding:
-      position: 0
-      prefix: -G
-
-  f:
-    type: string?
-    doc: The threshold for allele frequency, default - 0.01 or 1%%
-    inputBinding:
-      position: 0
-      prefix: -f
-
-  N:
+  - id: 'N'
     type: string?
     doc: Tumor Sample Name
-
-  b:
+  - id: S
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '-S'
+    doc: 'The column for region start, e.g. gene start'
+  - id: b
     type: File?
+    doc: Tumor bam
     secondaryFiles:
       - ^.bai
-    doc: Tumor bam
-
-  c:
-    type: string?
-    doc: The column for chromosome
-    inputBinding:
-      position: 0
-      prefix: -c
-
-  S:
-    type: string?
-    doc: The column for region start, e.g. gene start
-    inputBinding:
-      position: 0
-      prefix: -S
-
-  E:
-    type: string?
-    doc: The column for region end, e.g. gene end
-    inputBinding:
-      position: 0
-      prefix: -E
-
-  g:
-    type: string?
-    doc: The column for gene name, or segment annotation
-    inputBinding:
-      position: 0
-      prefix: -g
-
-  bedfile:
+  - id: bedfile
     type: File?
     inputBinding:
       position: 1
-
+  - id: c
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '-c'
+    doc: The column for chromosome
+  - id: f
+    type: int?
+    inputBinding:
+      position: 0
+      prefix: '-f'
+    doc: 'The threshold for allele frequency, default - 0.01 or 1%%'
+  - id: g
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '-g'
+    doc: 'The column for gene name, or segment annotation'
 outputs:
-  output:
+  - id: output
     type: File
     outputBinding:
       glob: vardict_app_output.vcf
-
-
+arguments:
+  - position: 1
+    prefix: '-b'
+    valueFrom: |-
+      ${
+          return inputs.b.path;
+      }
+requirements:
+  - class: EnvVarRequirement
+    envDef:
+      JAVA_OPTS: '"-Xms8g" "-Xmx95g"'
+  - class: ResourceRequirement
+    ramMin: 64000
+    coresMin: 4
+  - class: DockerRequirement
+    dockerPull: 'ghcr.io/msk-access/vardictjava:1.8.2'
+  - class: InlineJavascriptRequirement
 stdout: vardict_app_output.vcf
-
-
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
