@@ -1,60 +1,53 @@
-#!/usr/bin/env cwl-runner
-cwlVersion: v1.0
 class: CommandLineTool
-baseCommand:
-- perl
-- /usr/bin/vardict/bin/var2vcf_valid.pl
+cwlVersion: v1.0
+$namespaces:
+  sbg: 'https://www.sevenbridges.com/'
 id: vardict_var2vcf
-
-arguments:
-- position: 0
-  prefix: -N
-  valueFrom: "${\n    return inputs.N + \"|\" + inputs.N2;\n}"
-
-requirements:
-  InlineJavascriptRequirement: {}
-  ResourceRequirement:
-    coresMin: 4
-    ramMin: 32000
-  DockerRequirement:
-    dockerPull: ghcr.io/msk-access/vardictjava:1.8.2
-
+baseCommand:
+  - perl
+  - /usr/bin/vardict/bin/var2vcf_valid.pl
 inputs:
-
-  S:
-    type: boolean?
-    doc: If set variants that didnt pass filters will not be present in VCF file.
-    inputBinding:
-      position: 0
-      prefix: -S
-
-  N:
+  - id: 'N'
     type: string?
     doc: Tumor Sample Name
-
-  f:
-    type: string?
-    doc: The threshold for allele frequency, default - 0.05 or 5%%
+  - id: S
+    type: boolean?
     inputBinding:
       position: 0
-      prefix: -f
-
-  vcf:
+      prefix: '-S'
+    doc: If set variants that didnt pass filters will not be present in VCF file.
+  - id: f
+    type: int?
+    inputBinding:
+      position: 0
+      prefix: '-f'
+    doc: 'The threshold for allele frequency, default - 0.05 or 5%%'
+  - id: input_vcf
+    type: File?
+  - id: vcf
     type: string
     doc: output vcf file
-
-  input_vcf:
-    type: File?
-
 outputs:
-  output:
+  - id: output
     type: File
     outputBinding:
-      glob: ${ return inputs.vcf; }
-
+      glob: '${ return inputs.vcf; }'
+arguments:
+  - position: 0
+    prefix: '-N'
+    valueFrom: |-
+      ${
+          return inputs.N + "|" + inputs.N2;
+      }
+requirements:
+  - class: ResourceRequirement
+    ramMin: 32000
+    coresMin: 4
+  - class: DockerRequirement
+    dockerPull: 'ghcr.io/msk-access/vardictjava:1.8.2'
+  - class: InlineJavascriptRequirement
 stdin: $(inputs.input_vcf.path)
-stdout: ${ return inputs.vcf; }
-
+stdout: '${ return inputs.vcf; }'
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
