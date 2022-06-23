@@ -17,7 +17,7 @@ inputs:
       prefix: '-S'
     doc: If set variants that didnt pass filters will not be present in VCF file.
   - id: f
-    type: int?
+    type: float?
     inputBinding:
       position: 0
       prefix: '-f'

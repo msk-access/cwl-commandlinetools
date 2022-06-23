@@ -45,7 +45,7 @@ inputs:
       prefix: '-c'
     doc: The column for chromosome
   - id: f
-    type: int?
+    type: float?
     inputBinding:
       position: 0
       prefix: '-f'
