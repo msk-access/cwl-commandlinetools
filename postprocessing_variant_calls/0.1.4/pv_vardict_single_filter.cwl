@@ -62,6 +62,7 @@ inputs:
     inputBinding:
       position: 2
       prefix: '-mq'
+      shellQuote: false
     doc: Minimum variant call quality
   - id: filterGermline
     type: boolean?
