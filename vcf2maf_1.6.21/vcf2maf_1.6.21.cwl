@@ -1,158 +1,172 @@
-
 class: CommandLineTool
 cwlVersion: v1.0
-
 $namespaces:
-  dct: http://purl.org/dc/terms/
-  doap: http://usefulinc.com/ns/doap#
-  foaf: http://xmlns.com/foaf/0.1/
-  sbg: https://www.sevenbridges.com/
-
-id: vcf2maf_v1.6.21
-
+  dct: 'http://purl.org/dc/terms/'
+  doap: 'http://usefulinc.com/ns/doap#'
+  foaf: 'http://xmlns.com/foaf/0.1/'
+  sbg: 'https://www.sevenbridges.com/'
+id: vcf2maf_v1_6_21
 baseCommand:
   - perl
   - /opt/vcf2maf-1.6.21/vcf2maf.pl
-
 inputs:
-  memory_per_job:
-    type: ["null",int]
-    doc: Memory per job in megabytes
-  memory_overhead:
-    type: ["null",int]
-    doc: Memory overhead per job in megabytes
-  cache_version:
-    type:
-    - 'null'
-    - string
-    default: '105'
-    doc: Version of VEP and its cache to use
+  - id: any_allele
+    type: string?
     inputBinding:
-      prefix: --cache-version
-  species:
-    type:
-    - 'null'
-    - string
-    default: homo_sapiens
-    doc: Species of variants in input
+      position: 0
+      prefix: '--any-allele'
+    doc: 'When reporting co-located variants, allow mismatched variant alleles too'
+  - default: 5000
+    id: buffer_size
+    type: int?
     inputBinding:
-      prefix: --species
-  ncbi_build:
-    type:
-    - 'null'
-    - string
-    default: GRCh37
-    doc: Genome build of variants in input
-    inputBinding:
-      prefix: --ncbi-build
-  ref_fasta:
-    type: ['null', string]
-    doc: Reference FASTA file
-    inputBinding:
-      prefix: --ref-fasta
-  maf_center:
-    type: ['null', string]
-    default: mskcc.org
-    doc: Variant calling center to report in MAF
-    inputBinding:
-      prefix: --maf-center
-  output_maf:
-    type: ['null', string]
-    doc: Path to output MAF file
-    inputBinding:
-      prefix: --output-maf
-  min_hom_vaf:
-    type:
-    - 'null'
-    - float
-    default: 0.7
-    doc: If GT undefined in VCF, minimum allele fraction to call a variant homozygous
-    inputBinding:
-      prefix: --min-hom-vaf
-  remap_chain:
-    type: ['null', string]
-    doc: Chain file to remap variants to a different assembly before running VEP
-    inputBinding:
-      prefix: --remap-chain
-  normal_id:
-    type: ['null', string]
-    default: NORMAL
-    doc: Matched_Norm_Sample_Barcode to report in the MAF
-    inputBinding:
-      prefix: --normal-id
-  buffer_size:
-    type:
-    - 'null'
-    - int
-    default: 5000
+      position: 0
+      prefix: '--buffer-size'
     doc: Number of variants VEP loads at a time; Reduce this for low memory systems
+  - default: '105'
+    id: cache_version
+    type: string?
     inputBinding:
-      prefix: --buffer-size
-  custom_enst:
-    type: ['null', string]
-    doc: List of custom ENST IDs that override canonical selection
+      position: 0
+      prefix: '--cache-version'
+    doc: Version of VEP and its cache to use
+  - id: custom_enst
+    type: File?
     inputBinding:
-      prefix: --custom-enst
-  vcf_normal_id:
-    type: ['null', string]
-    default: NORMAL
-    doc: Matched normal ID used in VCFs genotype columns
-    inputBinding:
-      prefix: --vcf-normal-id
-  vep_path:
-   type: ['null', string]
-   doc: Folder containing variant_effect_predictor.pl or vep binary
-   inputBinding:
-     prefix: --vep-path
-  vep_data:
-    type: ['null', string]
-    doc: VEPs base cache/plugin directory
-    inputBinding:
-      prefix: --vep-data
-  any_allele:
-    type: ['null', string]
-    doc: When reporting co-located variants, allow mismatched variant alleles too
-    inputBinding:
-      prefix: --any-allele
-  input_vcf:
+      position: 0
+      prefix: '--custom-enst'
+    doc: 'List of custom ENST IDs that override canonical selection, in a file'
+  - id: input_vcf
     type:
-    - string
-    - File
+      - string
+      - File
+    inputBinding:
+      position: 0
+      prefix: '--input-vcf'
     doc: Path to input file in VCF format
+  - default: mskcc.org
+    id: maf_center
+    type: string?
     inputBinding:
-      prefix: --input-vcf
-  vep_forks:
-    type:
-    - 'null'
-    - int
-    default: 4
-    doc: Number of forked processes to use when running VEP
+      position: 0
+      prefix: '--maf-center'
+    doc: Variant calling center to report in MAF
+  - id: memory_overhead
+    type: int?
+    doc: Memory overhead per job in megabytes
+  - id: memory_per_job
+    type: int?
+    doc: Memory per job in megabytes
+  - default: 0.7
+    id: min_hom_vaf
+    type: float?
     inputBinding:
-      prefix: --vep-forks
-  vcf_tumor_id:
-    type: ['null', string]
-    default: TUMOR
-    doc: Tumor sample ID used in VCFs genotype columns
+      position: 0
+      prefix: '--min-hom-vaf'
+    doc: >-
+      If GT undefined in VCF, minimum allele fraction to call a variant
+      homozygous
+  - default: GRCh37
+    id: ncbi_build
+    type: string?
     inputBinding:
-      prefix: --vcf-tumor-id
-  tumor_id:
-    type: ['null', string]
-    default: TUMOR
-    doc: Tumor_Sample_Barcode to report in the MAF
+      position: 0
+      prefix: '--ncbi-build'
+    doc: Genome build of variants in input
+  - default: NORMAL
+    id: normal_id
+    type: string?
     inputBinding:
-      prefix: --tumor-id
-  retain_info:
-    type: ['null', string]
+      position: 0
+      prefix: '--normal-id'
+    doc: Matched_Norm_Sample_Barcode to report in the MAF
+  - id: output_maf
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--output-maf'
+    doc: Path to output MAF file
+  - id: ref_fasta
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--ref-fasta'
+    doc: Reference FASTA file
+  - id: remap_chain
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--remap-chain'
+    doc: Chain file to remap variants to a different assembly before running VEP
+  - id: retain_fmt
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--retain-fmt'
+    doc: >-
+      Comma-delimited names of FORMAT fields to retain as extra columns in MAF
+      []
+  - id: retain_info
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--retain-info'
     doc: Comma-delimited names of INFO fields to retain as extra columns in MAF
+  - default: homo_sapiens
+    id: species
+    type: string?
     inputBinding:
-      prefix: --retain-info
-  retain_fmt:
-    type: ['null', string]
-    doc: Comma-delimited names of FORMAT fields to retain as extra columns in MAF []
+      position: 0
+      prefix: '--species'
+    doc: Species of variants in input
+  - default: TUMOR
+    id: tumor_id
+    type: string?
     inputBinding:
-      prefix: --retain-fmt
+      position: 0
+      prefix: '--tumor-id'
+    doc: Tumor_Sample_Barcode to report in the MAF
+  - default: NORMAL
+    id: vcf_normal_id
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--vcf-normal-id'
+    doc: Matched normal ID used in VCFs genotype columns
+  - default: TUMOR
+    id: vcf_tumor_id
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--vcf-tumor-id'
+    doc: Tumor sample ID used in VCFs genotype columns
+  - id: vep_data
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--vep-data'
+    doc: VEPs base cache/plugin directory
+  - default: 4
+    id: vep_forks
+    type: int?
+    inputBinding:
+      position: 0
+      prefix: '--vep-forks'
+    doc: Number of forked processes to use when running VEP
+  - id: vep_path
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--vep-path'
+    doc: Folder containing variant_effect_predictor.pl or vep binary
+  - id: vep-custom
+    type: File?
+    inputBinding:
+      position: 0
+      prefix: '--vep-custom'
+    doc: annotate and filter based on custom vcf file
 outputs:
-  vcf2maf_maf:
+  - id: vcf2maf_maf
     type: File
     outputBinding:
       glob: |
@@ -161,35 +175,34 @@ outputs:
             return inputs.output_maf;
           return null;
         }
-
 arguments:
-- valueFrom: "$(runtime.tmpdir)"
-  prefix: '--tmp-dir'
-  shellQuote: false
-
+  - position: 0
+    prefix: '--tmp-dir'
+    shellQuote: false
+    valueFrom: $(runtime.tmpdir)
 requirements:
-  InlineJavascriptRequirement: {}
-  ResourceRequirement:
+  - class: ShellCommandRequirement
+  - class: ResourceRequirement
     ramMin: 8000
     coresMin: 2
-  DockerRequirement:
-    dockerPull: ghcr.io/msk-access/vcf2maf:1.6.21
-
-dct:contributor:
-  - class: foaf:Organization
-    foaf:member:
-      - class: foaf:Person
-        foaf:mbox: mailto:vurals@mskcc.org
-        foaf:name: Suleyman Vural
-    foaf:name: Memorial Sloan Kettering Cancer Center
-dct:creator:
-  - class: foaf:Organization
-    foaf:member:
-      - class: foaf:Person
-        foaf:mbox: mailto:kumarn1@mskcc.org
-        foaf:name: Nikhil Kumar
-    foaf:name: Memorial Sloan Kettering Cancer Center
-doap:release:
-  - class: doap:Version
-    doap:name: vcf2maf
-    doap:revision: 1.6.21
+  - class: DockerRequirement
+    dockerPull: 'ghcr.io/msk-access/vcf2maf:1.6.21'
+  - class: InlineJavascriptRequirement
+'dct:contributor':
+  - class: 'foaf:Organization'
+    'foaf:member':
+      - class: 'foaf:Person'
+        'foaf:mbox': 'mailto:vurals@mskcc.org'
+        'foaf:name': Suleyman Vural
+    'foaf:name': Memorial Sloan Kettering Cancer Center
+'dct:creator':
+  - class: 'foaf:Organization'
+    'foaf:member':
+      - class: 'foaf:Person'
+        'foaf:mbox': 'mailto:kumarn1@mskcc.org'
+        'foaf:name': Nikhil Kumar
+    'foaf:name': Memorial Sloan Kettering Cancer Center
+'doap:release':
+  - class: 'doap:Version'
+    'doap:name': vcf2maf
+    'doap:revision': 1.6.21
