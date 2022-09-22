@@ -1,0 +1,18 @@
+G:
+  class: File
+  path: "/path/to/ref/file"
+b:
+  class: File
+  path: "/path/to/bam/file"
+bedfile:
+  class: File
+  path: "/path/to/bed/file"
+c: "1"
+f: "0"
+S: "2"
+E: "3"
+g: "5"
+th: "4"
+vcf: "output.vcf"
+N: "name"
+f_1: "0"

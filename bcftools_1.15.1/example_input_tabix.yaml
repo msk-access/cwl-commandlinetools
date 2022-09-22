@@ -1,0 +1,3 @@
+class: File
+  path: /path/to/input.vcf.gz
+preset: vcf

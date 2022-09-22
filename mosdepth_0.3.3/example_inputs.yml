@@ -1,0 +1,10 @@
+bed:
+  class: File
+  path: "/path/to/bed"
+input_bam:
+- class: File
+  path: "/path/to/bam"
+  secondaryFiles:
+  - class: File
+    path: "/path/to/bam/index"
+prefix: "sample_prefix"

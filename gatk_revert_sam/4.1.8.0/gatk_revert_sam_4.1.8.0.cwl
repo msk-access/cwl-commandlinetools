@@ -213,6 +213,8 @@ outputs:
               return inputs.input.basename.replace(/.bam|.sam/, '_revertsam.bam')
           }
         }
+    secondaryFiles:
+      - ^.bai
   - id: gatk_revert_sam_output_map
     type: File?
     outputBinding:

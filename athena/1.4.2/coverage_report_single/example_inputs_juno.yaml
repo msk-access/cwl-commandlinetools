@@ -1,0 +1,11 @@
+raw_coverage: {class: File, path: /work/access/testing/users/buehlere/athena_test/Myeloid200-1-05500HJ_annotated.bed} 
+gene_stats: {class: File, path: /work/access/testing/users/buehlere/athena_test/Myeloid200-1-05500HJ_gene_stats.tsv} 
+exon_stats: {class: File, path: /work/access/testing/users/buehlere/athena_test/Myeloid200-1-05500HJ_exon_stats.tsv} 
+per_base_coverage: {class: File, path: /work/access/testing/users/buehlere/athena_test/athena/test/Myeloid200-1-05500HJ_P20.per-base.bed.gz} 
+panel: {class: File, path: /work/access/testing/users/buehlere/athena_test/athena/test/panel_bed_file_athena_CH_nodup.bed}
+threshold: 20
+sample_name: 'report1'
+output: 'report1'
+limit: 20
+summary: true
+cores: 4

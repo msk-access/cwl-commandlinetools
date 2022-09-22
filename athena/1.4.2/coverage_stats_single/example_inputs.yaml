@@ -1,0 +1,5 @@
+file: {class: File, path: /path/to/annotated_bed/file.bed} 
+build: {class: File, path: /path/to/mosdepth/build/file.txt} 
+flagstat: {class: File, path: /path/to/flagstat/file.txt} 
+threshold: [10, 20, 30, 50, 100]
+cores: 4

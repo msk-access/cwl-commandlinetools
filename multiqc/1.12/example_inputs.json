@@ -1,0 +1,16 @@
+{
+    "config": {
+        "class": "File",
+        "path": "/path_to/config.yaml"
+    },
+    "qc_files_array": null,
+    "qc_files_array_of_array": [],
+    "qc_files_dir": null,
+    "qc_list_of_dirs": [
+        {
+            "class": "Directory",
+            "path": "/test/picard/collapsed_bam_duplex_metrics"
+        }
+    ],
+    "report_name": null
+}

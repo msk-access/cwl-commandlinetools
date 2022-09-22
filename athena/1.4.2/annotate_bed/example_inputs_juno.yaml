@@ -1,0 +1,5 @@
+panel_bed: {class: File, path: /work/access/testing/users/buehlere/athena_test/athena/test/panel_bed_file_athena_CH_nodup.bed} 
+transcript_file: {class: File, path: /work/access/testing/users/buehlere/athena_test/athena/test/CH_transcript_pad3bp_athena_nodup.bed}
+coverage_file: {class: File, path: /work/access/testing/users/buehlere/athena_test/athena/test/Myeloid200-1-05500HJ_P20.per-base.bed.gz}
+chunk_size: 10000000
+output_name: 'ex1_prefix'

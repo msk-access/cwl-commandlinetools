@@ -1,0 +1,10 @@
+input:
+  - class: File
+    path: >-
+      /path/input/vcf.sorted.vcf.gz
+  - class: File
+    path: >-
+      /path/input/vcf.sorted.vcf.gz
+output_name: out_merged.vcf.gz
+output_type: z
+allow_overlaps: True

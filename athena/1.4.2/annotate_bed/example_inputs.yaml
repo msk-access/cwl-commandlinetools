@@ -1,0 +1,5 @@
+panel_bed: {class: File, path: path/to/panel_bed.bed}
+transcript_file: {class: File, path: path/to/transcript.bed}
+coverage_file: {class: File, path: path/to/coverage.per-base.bed.gz}
+chunk_size: 10000000
+output_name: 'prefix_name'

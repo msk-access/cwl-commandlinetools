@@ -1,0 +1,5 @@
+out_file: "name_of_output.bcf"
+reference_genome: {class: File, path: path_to_file.fasta} 
+input_bams: 
+  - {class: File, path: /path/to/file.bam}
+  - {class: File, path: /path/to/file.bam}

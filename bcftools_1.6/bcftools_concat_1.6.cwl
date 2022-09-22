@@ -157,7 +157,7 @@ requirements:
     ramMin: 8000
     coresMin: 1
   DockerRequirement:
-    dockerPull: mskaccess/bcftools:1.6
+    dockerPull: ghcr.io/msk-access/bcftools:1.6
 
 
 dct:contributor:

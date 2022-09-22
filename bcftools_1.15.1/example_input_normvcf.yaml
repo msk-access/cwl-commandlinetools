@@ -1,0 +1,12 @@
+check-ref: s
+fastaRef:
+  class: File
+  path: >-
+    /juno/work/access/production/resources/reference/current/Homo_sapiens_assembly19.fasta
+input:
+  class: File
+  path: /path/to/input.vcf.gz
+  secondaryFiles: []
+multiallelics: +
+output-name: out_norm.vcf.gz
+output-type: z

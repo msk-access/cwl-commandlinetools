@@ -4,7 +4,7 @@
 
 | Tool | Version | Location |
 |--- |--- |--- |
-| multiqc   | 1.10.1.7  |  <https://github.com/msk-access/MultiQC/> |
+| multiqc   | 1.12  |  <https://github.com/msk-access/MultiQC/> |
 
 ## CWL
 

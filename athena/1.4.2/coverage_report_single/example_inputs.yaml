@@ -1,0 +1,14 @@
+raw_coverage: {class: File, path: /path/to/annotated_bed/file.bed} 
+gene_stats: {class: File, path: /path/to/gene_stats.tsv} 
+exon_stats: {class: File, path: /path/to/exon_stats.tsv} 
+per_base_coverage: {class: File, path: /path/to/per_base/mosdepth/file.bed} 
+snps: 
+  - {class: File, path: /path/to/vcfs/known1.vcf}
+  - {class: File, path: /path/to/vcfs/known2.vcf} 
+threshold: 20
+sample_name: 'report1'
+output: 'report1'
+panel: {class: File, path: path/to/panel_bed.bed}
+limit: 20
+summary: true
+cores: 4

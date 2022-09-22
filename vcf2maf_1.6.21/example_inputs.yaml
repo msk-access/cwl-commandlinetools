@@ -1,0 +1,13 @@
+input_vcf:
+  class: File
+  path: /path/to/input.vcf
+tumor_id: tumor_sample_name
+vcf_tumor_id: tumor_sample_name
+retain_info: "set,TYPE,FAILURE_REASON"
+max_filter_ac: 10
+min_hom_vaf: 0.7
+buffer_size: 5000
+custom_enst:
+  class: File
+  path:  /work/access/production/resources/msk-access/current/regions_of_interest/current/dmp_ACCESS-panelA-v1-isoform-overrides
+output_maf: output.maf

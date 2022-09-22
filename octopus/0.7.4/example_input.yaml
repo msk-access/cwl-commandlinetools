@@ -1,0 +1,21 @@
+error_models: null
+input:
+  - class: File
+    path: >-
+      /juno/work/access/production/data/bams/C-0A8NCE/C-0A8NCE-L001-d/current/C-0A8NCE-L001-d_cl_aln_srt_MD_IR_FX_BR__aln_srt_IR_FX-duplex.bam
+  - class: File
+    path: >-
+      /juno/work/access/production/data/bams/C-0A8NCE/C-0A8NCE-N001-d/current/C-0A8NCE-N001-d_cl_aln_srt_MD_IR_FX_BR__aln_srt_IR_FX-duplex.bam
+normalId: C-0A8NCE-N001-d
+output_file_name: oct.vcf
+reference:
+  class: File
+  metadata: {}
+  path: >-
+    /juno/work/access/production/resources/reference/current/Homo_sapiens_assembly19.fasta
+skipRegions_file: null
+skipRegions_singleEntry: null
+somaticOnlyCalls: null
+targettedCalling_file: null
+targettedCalling_singleEntry: null
+tumorOnlySample: null
