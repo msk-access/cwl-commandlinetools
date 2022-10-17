@@ -63,7 +63,7 @@ inputs:
     'sbg:x': 742.6807250976562
     'sbg:y': 319.953125
   - id: vardict_allele_frequency_threshold
-    type: string?
+    type: float?
     'sbg:x': 262.4856872558594
     'sbg:y': 727.823486328125
 outputs:
