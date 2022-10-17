@@ -58,14 +58,14 @@ inputs:
     type: boolean?
     'sbg:x': 742.6807250976562
     'sbg:y': 533.296875
-  - id: minimum_allele_frequency
-    type: float?
-    'sbg:x': 742.6807250976562
-    'sbg:y': 426.625
   - id: output_vcf
     type: string
     'sbg:x': 742.6807250976562
     'sbg:y': 319.953125
+  - id: vardict_allele_frequency_threshold
+    type: string?
+    'sbg:x': 262.4856872558594
+    'sbg:y': 727.823486328125
 outputs:
   - id: output
     outputSource:
@@ -92,7 +92,7 @@ steps:
       - id: filter_variants
         source: filter_variants
       - id: minimum_allele_frequency
-        source: minimum_allele_frequency
+        source: vardict_allele_frequency_threshold
       - id: input_vcf
         source: teststrandbias/output_var
       - id: output_vcf
@@ -120,6 +120,8 @@ steps:
         source: bedfile
       - id: bed_file_column_for_chromsome
         source: bed_file_column_for_chromsome
+      - id: allele_frequency_threshold
+        source: vardict_allele_frequency_threshold
       - id: bed_file_column_for_gene_name
         source: bed_file_column_for_gene_name
     out:
