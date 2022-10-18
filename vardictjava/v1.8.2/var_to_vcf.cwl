@@ -27,7 +27,7 @@ inputs:
     inputBinding:
       position: 0
       prefix: '-f'
-      valueFrom: return inputs.allele_frequency_threshold.toString();
+      valueFrom: '${ return inputs.minimum_allele_frequency.toString(); }'
     doc: 'The threshold for allele frequency, default - 0.05 or 5%%'
   - id: input_vcf
     type: File
