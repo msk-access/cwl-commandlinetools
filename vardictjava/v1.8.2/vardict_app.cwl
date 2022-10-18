@@ -56,7 +56,7 @@ inputs:
       prefix: '-c'
     doc: The column for chromosome
   - id: allele_frequency_threshold
-    type: float?
+    type: string?
     inputBinding:
       position: 0
       prefix: '-f'
