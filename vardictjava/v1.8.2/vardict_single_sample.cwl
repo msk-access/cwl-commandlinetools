@@ -63,9 +63,13 @@ inputs:
     'sbg:x': 742.6807250976562
     'sbg:y': 319.953125
   - id: vardict_allele_frequency_threshold
-    type: float?
+    type: string?
     'sbg:x': 262.4856872558594
     'sbg:y': 727.823486328125
+  - id: vartovcf_allele_frequency
+    type: float?
+    'sbg:x': 953.9440307617188
+    'sbg:y': 728.4083251953125
 outputs:
   - id: output
     outputSource:
@@ -92,7 +96,7 @@ steps:
       - id: filter_variants
         source: filter_variants
       - id: minimum_allele_frequency
-        source: vardict_allele_frequency_threshold
+        source: vartovcf_allele_frequency
       - id: input_vcf
         source: teststrandbias/output_var
       - id: output_vcf
