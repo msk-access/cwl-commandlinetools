@@ -56,10 +56,11 @@ inputs:
       prefix: '-c'
     doc: The column for chromosome
   - id: allele_frequency_threshold
-    type: string?
+    type: float?
     inputBinding:
       position: 0
       prefix: '-f'
+      valueFrom: '${ return inputs.allele_frequency_threshold.toString(); }'
     doc: 'The threshold for allele frequency, default - 0.01 or 1%%'
   - id: bed_file_column_for_gene_name
     type: string?
