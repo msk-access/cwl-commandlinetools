@@ -38,7 +38,6 @@ inputs:
     doc: 'List of custom ENST IDs that override canonical selection, in a file'
   - id: input_vcf
     type:
-      - string
       - File
     inputBinding:
       position: 0

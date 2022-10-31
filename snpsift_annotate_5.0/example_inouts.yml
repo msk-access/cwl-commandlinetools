@@ -1,0 +1,8 @@
+input_DB_vcf:
+  class: File
+  path: /work/bergerm1/bergerlab/sivaprk/cosmicData/CosmicCodingMuts.vcf.gz
+input_vcf:
+  class: File
+  path: >-
+    /path/to/input/file.vcf
+output_file_name: output.vcf
