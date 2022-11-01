@@ -45,6 +45,14 @@ inputs:
       position: 0
       prefix: '-d'
     doc: debug
+  - id: output_file_name
+    type: string?
+  - id: sorted
+    type: boolean?
+    inputBinding:
+      position: 0
+      prefix: '-sorted'
+    doc: 'VCF database is sorted and uncompressed. Default: false'
 outputs:
   - id: annotatedOutput
     type: File
