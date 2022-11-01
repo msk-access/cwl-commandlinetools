@@ -27,21 +27,7 @@ inputs:
     type: File
     inputBinding:
       position: 26
-  - id: output_file_name
-    type: string?
-    id: id
-    type: boolean?
-    inputBinding:
-      position: 0
-      prefix: '-id'
-    doc: 'Only annotate ID field (do not add INFO field). Default: true'
-    id: sorted
-    type: boolean?
-    inputBinding:
-      position: 0
-      prefix: '-sorted'
-    doc: 'VCF database is sorted and uncompressed. Default: false'
-    id: tabix
+  - id: tabix
     type: boolean?
     inputBinding:
       position: 0
