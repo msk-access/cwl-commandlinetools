@@ -37,8 +37,7 @@ inputs:
       prefix: '--custom-enst'
     doc: 'List of custom ENST IDs that override canonical selection, in a file'
   - id: input_vcf
-    type:
-      - File
+    type: File
     inputBinding:
       position: 0
       prefix: '--input-vcf'
@@ -85,12 +84,13 @@ inputs:
       position: 0
       prefix: '--output-maf'
     doc: Path to output MAF file
-  - default: '/.vep/homo_sapiens/105_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz'
+  - default: /.vep/homo_sapiens/105_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz
     id: ref_fasta
-    type: string?
+    type: File?
     inputBinding:
       position: 0
       prefix: '--ref-fasta'
+      valueFrom: '${ return inputs.ref_fasta.toString(); }'
     doc: Reference FASTA file
   - id: remap_chain
     type: string?
@@ -154,7 +154,7 @@ inputs:
       position: 0
       prefix: '--vep-forks'
     doc: Number of forked processes to use when running VEP
-  - default: '/usr/local/bin/'
+  - default: /usr/local/bin/
     id: vep_path
     type: string?
     inputBinding:
