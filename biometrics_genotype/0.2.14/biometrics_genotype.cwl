@@ -146,4 +146,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': biometrics
-    'doap:revision': 0.2.13
+    'doap:revision': 0.2.14

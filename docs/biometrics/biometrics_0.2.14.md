@@ -4,7 +4,7 @@
 
 | Tool | Version | Location |
 |--- |--- |--- |
-| biometrics_genotype   | 0.2.14  |  <https://github.com/msk-access/biometrics> |
+| biometrics_<tool>   | 0.2.14  |  <https://github.com/msk-access/biometrics> |
 
 ## CWL
 
@@ -13,23 +13,23 @@
 - Example Command using [toil](https://toil.readthedocs.io):
 
 ```bash
-    > toil-cwl-runner biometrics_genotype.cwl example_inputs.json
+    > toil-cwl-runner biometrics_<tool>.cwl example_inputs.json
 ```
 
 ```bash
 #Using CWLTOOL
-> cwltool --singularity --non-strict /path/to/biometrics_genotype.cwl /path/to/example_inputs.json
+> cwltool --singularity --non-strict /path/to/biometrics_<tool>.cwl /path/to/example_inputs.json
 
 #Using toil-cwl-runner
 > mkdir tool_toil_log
-> toil-cwl-runner --singularity --logFile /path/to/tool_toil_log/cwltoil.log  --jobStore /path/to/tool_jobStore --batchSystem lsf --workDir /path/to/tool_toil_log --outdir . --writeLogs /path/to/tool_toil_log --logLevel DEBUG --stats --retryCount 2 --disableCaching --maxLogFileSize 20000000000 /path/to/biometrics_genotype.cwl /path/to/example_inputs.json > tool_toil.stdout 2> tool_toil.stderr &
+> toil-cwl-runner --singularity --logFile /path/to/tool_toil_log/cwltoil.log  --jobStore /path/to/tool_jobStore --batchSystem lsf --workDir /path/to/tool_toil_log --outdir . --writeLogs /path/to/tool_toil_log --logLevel DEBUG --stats --retryCount 2 --disableCaching --maxLogFileSize 20000000000 /path/to/biometrics_<tool>.cwl /path/to/example_inputs.json > tool_toil.stdout 2> tool_toil.stderr &
 ```
 
 ### Usage
 
 ```bash
-> toil-cwl-runner biometrics_genotype.cwl -h
-usage: biometrics_genotype.cwl [-h] --directory DIRECTORY --samples-json
+> toil-cwl-runner biometrics_<tool>.cwl -h
+usage: biometrics_<tool>.cwl [-h] --directory DIRECTORY --samples-json
                                SAMPLES_JSON [--config CONFIG]
                                [job_order]
 

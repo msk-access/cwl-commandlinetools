@@ -5,10 +5,10 @@ $namespaces:
   doap: 'http://usefulinc.com/ns/doap#'
   foaf: 'http://xmlns.com/foaf/0.1/'
   sbg: 'https://www.sevenbridges.com/'
-id: biometrics_sexmismatch_0_2_13
+id: biometrics_minor_0_2_13
 baseCommand:
   - biometrics
-  - sexmismatch
+  - minor
 inputs:
   - id: input
     type:
@@ -33,19 +33,25 @@ inputs:
     doc: >-
       Directory to store the intermediate files after running the extraction
       step.
-  - default: 50
-    id: coverage_threshold
-    type: int?
+  - default: 0.002
+    id: minor_threshold
+    type: float?
     inputBinding:
       position: 0
-      prefix: '--coverage-threshold'
-    doc: Samples with Y chromosome above this value will be considered male.
+      prefix: '--minor-threshold'
+    doc: Minor contamination threshold for bad sample.
   - id: prefix
     type: string?
     inputBinding:
       position: 0
       prefix: '--prefix'
     doc: Output file prefix.
+  - id: plot
+    type: boolean?
+    inputBinding:
+      position: 0
+      prefix: '--plot'
+    doc: Also output plots of the data.
   - id: json
     type: boolean?
     inputBinding:
@@ -61,34 +67,48 @@ inputs:
       Do not compare the sample(s) you provided to all samples in the database,
       only compare them with each other.
 outputs:
-  - id: biometrics_sexmismatch_csv
+  - id: biometrics_minor_csv
     type: File
     outputBinding:
       glob: |-
         ${
             if (inputs.prefix) {
-              return inputs.prefix + '_sex_mismatch.csv'
+              return inputs.prefix + '_minor_contamination.csv'
             } else {
-              return 'sex_mismatch.csv'
+              return 'minor_contamination.csv'
             }
         }
-  - id: biometrics_sexmismatch_json
+  - id: biometrics_minor_json
     type: File?
     outputBinding:
       glob: |-
         ${
             if (inputs.prefix) {
-              return inputs.prefix + '_sex_mismatch.json'
+              return inputs.prefix + '_minor_contamination.json'
             } else {
-              return 'sex_mismatch.json'
+              return 'minor_contamination.json'
             }
+        }
+  - id: biometrics_minor_plot
+    type: File?
+    outputBinding:
+      glob: |-
+        ${
+          return 'minor_contamination.html'
+        }
+  - id: biometrics_minor_sites_plot
+    type: File?
+    outputBinding:
+      glob: |-
+        ${
+          return 'minor_contamination_sites.html'
         }
 requirements:
   - class: ResourceRequirement
     ramMin: 16000
     coresMin: 2
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.13'
+    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.14'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
@@ -107,4 +127,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': biometrics
-    'doap:revision': 0.2.13
+    'doap:revision': 0.2.14
