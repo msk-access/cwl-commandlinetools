@@ -5,7 +5,7 @@ $namespaces:
   doap: 'http://usefulinc.com/ns/doap#'
   foaf: 'http://xmlns.com/foaf/0.1/'
   sbg: 'https://www.sevenbridges.com/'
-id: biometrics_minor_0_2_13
+id: biometrics_minor_0_2_14
 baseCommand:
   - biometrics
   - minor
