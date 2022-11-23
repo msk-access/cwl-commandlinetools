@@ -5,7 +5,7 @@ $namespaces:
   doap: 'http://usefulinc.com/ns/doap#'
   foaf: 'http://xmlns.com/foaf/0.1/'
   sbg: 'https://www.sevenbridges.com/'
-id: biometrics_genotype_0_2_13
+id: biometrics_genotype_0_2_14
 baseCommand:
   - biometrics
   - genotype
@@ -127,7 +127,7 @@ requirements:
     ramMin: 16000
     coresMin: 2
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.13'
+    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.14'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
