@@ -5,19 +5,18 @@ $namespaces:
   doap: 'http://usefulinc.com/ns/doap#'
   foaf: 'http://xmlns.com/foaf/0.1/'
   sbg: 'https://www.sevenbridges.com/'
-id: biometrics_sexmismatch_0_2_13
+id: biometrics_genotype_0_2_14
 baseCommand:
   - biometrics
-  - sexmismatch
+  - genotype
 inputs:
   - id: input
     type:
       type: array
       items: File
       inputBinding:
+        position: 0
         prefix: '--input'
-    inputBinding:
-      position: 0
     doc: >-
       Can be one of three types: (1) path to a CSV file containing sample
       information (one per line). For example:
@@ -33,19 +32,27 @@ inputs:
     doc: >-
       Directory to store the intermediate files after running the extraction
       step.
-  - default: 50
-    id: coverage_threshold
-    type: int?
+  - default: 0.05
+    id: discordance_threshold
+    type: float?
     inputBinding:
       position: 0
-      prefix: '--coverage-threshold'
-    doc: Samples with Y chromosome above this value will be considered male.
+      prefix: '--discordance-threshold'
+    doc: >-
+      Discordance values less than this are regarded as matching samples.
+      (default: 0.05)
   - id: prefix
     type: string?
     inputBinding:
       position: 0
       prefix: '--prefix'
     doc: Output file prefix.
+  - id: plot
+    type: boolean?
+    inputBinding:
+      position: 0
+      prefix: '--plot'
+    doc: Also output plots of the data.
   - id: json
     type: boolean?
     inputBinding:
@@ -60,35 +67,67 @@ inputs:
     doc: >-
       Do not compare the sample(s) you provided to all samples in the database,
       only compare them with each other.
+  - default: 2
+    id: threads
+    type: int?
+    inputBinding:
+      position: 0
+      prefix: '--threads'
+    doc: Number of threads to use.
 outputs:
-  - id: biometrics_sexmismatch_csv
+  - id: biometrics_genotype_comparisons
     type: File
     outputBinding:
       glob: |-
         ${
-            if (inputs.prefix) {
-              return inputs.prefix + '_sex_mismatch.csv'
-            } else {
-              return 'sex_mismatch.csv'
-            }
+          if (inputs.prefix) {
+            return inputs.prefix + '_genotype_comparison.csv'
+          } else {
+            return 'genotype_comparison.csv'
+          }
         }
-  - id: biometrics_sexmismatch_json
+  - id: biometrics_genotype_cluster_input
+    type: File
+    outputBinding:
+      glob: |-
+        ${
+          if (inputs.prefix) {
+            return inputs.prefix + '_genotype_clusters_input.csv'
+          } else {
+            return 'genotype_clusters_input.csv'
+          }
+        }
+  - id: biometrics_genotype_cluster_input_database
     type: File?
     outputBinding:
       glob: |-
         ${
-            if (inputs.prefix) {
-              return inputs.prefix + '_sex_mismatch.json'
-            } else {
-              return 'sex_mismatch.json'
-            }
+          if (inputs.prefix) {
+            return inputs.prefix + '_genotype_clusters_database.csv'
+          } else {
+            return 'genotype_clusters_database.csv'
+          }
+        }
+  - id: biometrics_genotype_plot_input
+    type: File?
+    outputBinding:
+      glob: |-
+        ${
+          return 'genotype_comparison_input.html'
+        }
+  - id: biometrics_genotype_plot_input_database
+    type: File?
+    outputBinding:
+      glob: |-
+        ${
+          return 'genotype_comparison_database.html'
         }
 requirements:
   - class: ResourceRequirement
     ramMin: 16000
     coresMin: 2
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.13'
+    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.14'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
@@ -107,4 +146,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': biometrics
-    'doap:revision': 0.2.13
+    'doap:revision': 0.2.14
