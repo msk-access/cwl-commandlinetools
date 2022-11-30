@@ -60,11 +60,18 @@ inputs:
       Reference Genome only allows the following values(case-insensitive):
           - GRCh37
             GRCh38
-outputs: []
+outputs:
+  - id: outputMaf
+    type: File?
+    outputBinding:
+      glob: >-
+        ${   if (inputs.outputMafname)     return inputs.outputmafName;   return
+        null; }
 label: oncokb_annotator
 requirements:
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/oncokbannotator:3.2.2'
+  - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
