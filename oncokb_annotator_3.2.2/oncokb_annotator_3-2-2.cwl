@@ -64,7 +64,7 @@ outputs:
   - id: outputMaf
     type: File?
     outputBinding:
-      glob: '${   if (inputs.output)     return inputs.output;   return null; }'
+      glob: $(inputs.outputMafName)
 label: oncokb_annotator
 requirements:
   - class: DockerRequirement
