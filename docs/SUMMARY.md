@@ -79,9 +79,15 @@
   * [0.3.3](mosdepth/mosdepth_0.3.3.md)
 
 * [Octopus](octopus/README.md)
+
   * [v0.7.4](octopus/octopus_0.7.4.md)
 
+* [Oncokb_annotator](oncokb_annotator/README.md)
+
+  * [v3.2.2](oncokb_annotator/oncokb_annotator_3.2.2.md)
+
 * [Picard Tools](picard-tools/README.md)
+
   * [AddOrReplaceReadGroups v1.96](picard-tools/picard_add_or_replace_read_groups_1.96.md)
   * [AddOrReplaceReadGroups v2.21.2](picard-tools/picard_add_or_replace_read_groups_2.21.2.md)
   * [AddOrReplaceReadGroups v4.1.8.1](picard-tools/picard_add_or_replace_read_groups_4.1.8.1.md)

@@ -1,0 +1,5 @@
+apiToken: 111d111-token123
+inputMafFile:
+  class: File
+  path: /path/to/the/mafFile.maf
+outputMafName: testOnco.maf
