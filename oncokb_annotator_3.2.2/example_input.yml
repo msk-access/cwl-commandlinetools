@@ -1,4 +1,6 @@
-apiToken: 111d111-token123
+apiToken: 
+  class: File
+  path: /path/to/apiToken/file.txt
 inputMafFile:
   class: File
   path: /path/to/the/mafFile.maf

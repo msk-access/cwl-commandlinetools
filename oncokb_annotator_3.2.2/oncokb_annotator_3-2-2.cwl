@@ -22,10 +22,11 @@ inputs:
       position: 0
       prefix: '-o'
   - id: apiToken
-    type: string
+    type: File
     inputBinding:
       position: 0
       prefix: '-b'
+      valueFrom: '${ return inputs.apiToken.toString(); }'
     doc: OncoKB API token
   - id: previousResult
     type: File?
