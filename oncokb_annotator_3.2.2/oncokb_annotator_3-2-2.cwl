@@ -61,6 +61,12 @@ inputs:
       Reference Genome only allows the following values(case-insensitive):
           - GRCh37
             GRCh38
+  - 'sbg:toolDefaultValue': 'False'
+    id: annotateHotspots
+    type: boolean?
+    inputBinding:
+      position: 0
+      prefix: '-a'
 outputs:
   - id: outputMaf
     type: File?
