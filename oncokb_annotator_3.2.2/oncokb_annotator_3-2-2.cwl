@@ -26,7 +26,7 @@ inputs:
     inputBinding:
       position: 0
       prefix: '-b'
-      valueFrom: '${ return inputs.apiToken.toString(); }'
+      valueFrom: ' ${ return inputs.apiToken.contents; }'
     doc: OncoKB API token
   - id: previousResult
     type: File?
@@ -76,6 +76,7 @@ requirements:
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/oncokbannotator:3.2.2'
   - class: InlineJavascriptRequirement
+stdout: onckb_stdout.txt
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
