@@ -26,6 +26,7 @@ inputs:
     inputBinding:
       position: 0
       prefix: '-b'
+      loadContents: true
       valueFrom: ' ${ return inputs.apiToken.contents; }'
     doc: OncoKB API token
   - id: previousResult
