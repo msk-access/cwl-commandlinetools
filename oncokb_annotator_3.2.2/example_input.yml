@@ -1,0 +1,8 @@
+apiToken: 
+  class: File
+  path: /path/to/apiToken/file.txt
+inputMafFile:
+  class: File
+  path: /path/to/the/mafFile.maf
+annotateHotspots: TRUE
+outputMafName: testOnco.maf
