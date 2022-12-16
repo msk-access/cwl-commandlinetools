@@ -34,7 +34,7 @@ toil-cwl-runner --singularity --logFile /path/to/oncokb_annotator_toil_log/cwlto
 usage: oncokb_annotator_3-2-2.cwl [-h]  --inputMafFile INPUTMAFFILE --outputMafName OUTPUTMAFNAME
        --apiToken APITOKEN [--previousResult PREVIOUSRESULT]
        [--clinicalFile CLINICALFILE] [--tumorType TUMORTYPE]
-       [--referenceGenome REFERENCEGENOME]
+       [--referenceGenome REFERENCEGENOME] [--annotateHotspots]
        [job_order]
 
 positional arguments:
@@ -58,4 +58,6 @@ optional arguments:
   --referenceGenome REFERENCEGENOME
                         Reference Genome only allows the following
                         values(case-insensitive): - GRCh37 GRCh38
+  --annotateHotspots
+
 ```
