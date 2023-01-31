@@ -5,10 +5,10 @@ $namespaces:
   doap: 'http://usefulinc.com/ns/doap#'
   foaf: 'http://xmlns.com/foaf/0.1/'
   sbg: 'https://www.sevenbridges.com/'
-id: biometrics_major_0_2_13
+id: biometrics_minor_0_2_14
 baseCommand:
   - biometrics
-  - major
+  - minor
 inputs:
   - id: input
     type:
@@ -33,13 +33,13 @@ inputs:
     doc: >-
       Directory to store the intermediate files after running the extraction
       step.
-  - default: 0.6
-    id: major_threshold
+  - default: 0.002
+    id: minor_threshold
     type: float?
     inputBinding:
       position: 0
-      prefix: '--major-threshold'
-    doc: Major contamination threshold for bad sample.
+      prefix: '--minor-threshold'
+    doc: Minor contamination threshold for bad sample.
   - id: prefix
     type: string?
     inputBinding:
@@ -67,41 +67,48 @@ inputs:
       Do not compare the sample(s) you provided to all samples in the database,
       only compare them with each other.
 outputs:
-  - id: biometrics_major_csv
+  - id: biometrics_minor_csv
     type: File
     outputBinding:
       glob: |-
         ${
             if (inputs.prefix) {
-              return inputs.prefix + '_major_contamination.csv'
+              return inputs.prefix + '_minor_contamination.csv'
             } else {
-              return 'major_contamination.csv'
+              return 'minor_contamination.csv'
             }
         }
-  - id: biometrics_major_json
+  - id: biometrics_minor_json
     type: File?
     outputBinding:
       glob: |-
         ${
             if (inputs.prefix) {
-              return inputs.prefix + '_major_contamination.json'
+              return inputs.prefix + '_minor_contamination.json'
             } else {
-              return 'major_contamination.json'
+              return 'minor_contamination.json'
             }
         }
-  - id: biometrics_major_plot
+  - id: biometrics_minor_plot
     type: File?
     outputBinding:
       glob: |-
         ${
-          return 'major_contamination.html'
+          return 'minor_contamination.html'
+        }
+  - id: biometrics_minor_sites_plot
+    type: File?
+    outputBinding:
+      glob: |-
+        ${
+          return 'minor_contamination_sites.html'
         }
 requirements:
   - class: ResourceRequirement
     ramMin: 16000
     coresMin: 2
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.13'
+    dockerPull: 'ghcr.io/msk-access/biometrics:0.2.14'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
@@ -120,4 +127,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': biometrics
-    'doap:revision': 0.2.13
+    'doap:revision': 0.2.14

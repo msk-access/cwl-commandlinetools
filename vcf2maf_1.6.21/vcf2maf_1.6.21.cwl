@@ -37,9 +37,7 @@ inputs:
       prefix: '--custom-enst'
     doc: 'List of custom ENST IDs that override canonical selection, in a file'
   - id: input_vcf
-    type:
-      - string
-      - File
+    type: File
     inputBinding:
       position: 0
       prefix: '--input-vcf'
