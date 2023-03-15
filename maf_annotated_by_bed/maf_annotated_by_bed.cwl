@@ -17,34 +17,28 @@ inputs:
     doc: Memory overhead per job in megabytes
   - id: number_of_threads
     type: int?
-  - id: inputMaf
+  - id: input_maf
     type: File
     inputBinding:
       position: 0
       prefix: '-m'
-      shellQuote: false
-    'sbg:fileTypes': maf
   - id: input_bed
     type: File
     inputBinding:
       position: 1
       prefix: '-b'
-      shellQuote: false
-    'sbg:fileTypes': .bed
   - 'sbg:toolDefaultValue': output.csv
     id: output_filename
     type: string?
     inputBinding:
       position: 3
       prefix: '-o'
-      shellQuote: false
   - 'sbg:toolDefaultValue': annotation
-    id: columnName
+    id: column_name
     type: string?
     inputBinding:
       position: 4
       prefix: '-c'
-      shellQuote: false
 outputs: []
 label: maf_annotated_by_bed
 arguments:
@@ -52,7 +46,6 @@ arguments:
   - annotate
   - mafbybed
 requirements:
-  - class: ShellCommandRequirement
   - class: ResourceRequirement
     ramMin: 4000
     coresMin: 4
@@ -76,4 +69,3 @@ requirements:
   - class: 'doap:Version'
     'doap:name': postprocessing_variant_calls
     'doap:revision': 0.0.1
-
