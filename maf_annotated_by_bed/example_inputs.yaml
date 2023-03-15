@@ -1,0 +1,4 @@
+columnName: annotation
+inputMaf: /path/to/input/maf.maf
+input_bed: /path/to/input/bed.bed
+output_filename: annotated.csv
