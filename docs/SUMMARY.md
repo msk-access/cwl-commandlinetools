@@ -56,9 +56,14 @@
 * GetBaseCountsMultiSample
   * [1.2.5](../getbasecountsmultisample/1.2.5/README.md)
 
+* [Maf_annotated_by_bed](maf_annotated_by_end/README.md)
+  
+  * [maf_annotated_by_bed](maf_annotated_by_bed/maf_annotated_by_bed.md)
+  
 * [Manta](manta/README.md)
+  
   * [Manta v1.5.1](manta/manta_1.5.1.md)
-
+  
 * [Marianas](marianas/README.md)
   * [Collapsing First Pass v1.8.1](marianas/marianas_collapsing_first_pass_1.8.1.md)
   * [Collapsing Second Pass v1.8.1](marianas/marianas_collapsing_second_pass_1.8.1.md)
