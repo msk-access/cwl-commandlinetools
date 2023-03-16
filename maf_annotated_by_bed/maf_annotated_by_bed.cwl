@@ -39,7 +39,16 @@ inputs:
     inputBinding:
       position: 4
       prefix: '-c'
-outputs: []
+outputs:
+  - id: output
+    type: File?
+    outputBinding:
+      glob: |-
+        ${   
+            if (inputs.output_filename)     
+                return inputs.output_filename;   
+            return null; 
+        }
 label: maf_annotated_by_bed
 arguments:
   - maf
@@ -51,6 +60,11 @@ requirements:
     coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.7'
+  - class: InitialWorkDirRequirement
+    listing:
+      - entry: $(inputs.directory)
+        writable: true
+  - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
