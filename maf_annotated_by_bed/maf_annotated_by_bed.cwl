@@ -54,10 +54,6 @@ requirements:
     coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.7'
-  - class: InitialWorkDirRequirement
-    listing:
-      - entry: $(inputs.directory)
-        writable: true
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
