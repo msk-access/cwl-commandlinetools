@@ -27,8 +27,7 @@ inputs:
     inputBinding:
       position: 1
       prefix: '-b'
-  - 'sbg:toolDefaultValue': output.csv
-    id: output_filename
+  - id: output_filename
     type: string?
     inputBinding:
       position: 3
@@ -41,14 +40,9 @@ inputs:
       prefix: '-c'
 outputs:
   - id: output
-    type: File?
+    type: File
     outputBinding:
-      glob: |-
-        ${   
-            if (inputs.output_filename)     
-                return inputs.output_filename;   
-            return null; 
-        }
+      glob: '*.csv'
 label: maf_annotated_by_bed
 arguments:
   - maf
