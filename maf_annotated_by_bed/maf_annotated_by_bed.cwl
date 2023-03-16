@@ -51,8 +51,6 @@ requirements:
     coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.6'
-stdout: stdout.out
-stderr: stderr.err
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
