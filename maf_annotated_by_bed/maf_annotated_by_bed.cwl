@@ -50,7 +50,7 @@ requirements:
     ramMin: 4000
     coresMin: 4
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.6'
+    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.7'
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
