@@ -50,8 +50,8 @@ arguments:
   - mafbybed
 requirements:
   - class: ResourceRequirement
-    ramMin: 4000
-    coresMin: 4
+    ramMin: 8000
+    coresMin: 2
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.7'
   - class: InlineJavascriptRequirement
@@ -59,15 +59,15 @@ requirements:
   - class: 'foaf:Organization'
     'foaf:member':
       - class: 'foaf:Person'
-        'foaf:mbox': 'mailto:sivaprk@mskcc.org'
-        'foaf:name': Karthigayini Sivaprakasam
+        'foaf:mbox': 'mailto:shahr2@mskcc.org'
+        'foaf:name': Ronak Shah
     'foaf:name': Memorial Sloan Kettering Cancer Center
 'dct:creator':
   - class: 'foaf:Organization'
     'foaf:member':
       - class: 'foaf:Person'
-        'foaf:mbox': 'mailto:shahr2@mskcc.org'
-        'foaf:name': Ronak Shah
+        'foaf:mbox': 'mailto:sivaprk@mskcc.org'
+        'foaf:name': Karthigayini Sivaprakasam
     'foaf:name': Memorial Sloan Kettering Cancer Center
 'doap:release':
   - class: 'doap:Version'
