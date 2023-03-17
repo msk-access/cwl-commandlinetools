@@ -108,9 +108,9 @@
 
 * [Postprocessing variant calls](postprocessing_variant_calls/README.md)
   
-  * [vardict_filter_case-control 0.1.3](postprocessing_variant_calls/vardict_filter_case-control_0.1.3.md)
-  * [vardict_filter_single-sample 0.1.3](postprocessing_variant_calls/vardict_filter_single-sample_0.1.3.md)
-  * [maf_annotated_by_bed](postprocessing_variant_calls/0.1.7/maf_annotated_by_bed.md)
+  * [vardict_filter_case-control 0.1.5](postprocessing_variant_calls/vardict_filter_case-control_0.1.5.md)
+  * [vardict_filter_single-sample 0.1.5](postprocessing_variant_calls/vardict_filter_single-sample_0.1.5.md)
+  * [maf_annotated_by_bed_0.1.7](postprocessing_variant_calls/maf_annotated_by_bed_0.1.7.md)
   
 * [SnpSift](snpsift/README.md)
   
