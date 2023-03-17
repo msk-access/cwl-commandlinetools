@@ -107,20 +107,23 @@
   * [MarkDuplicates v4.1.8.1](picard-tools/picard_mark_duplicates_4.1.8.1.md)
 
 * [Postprocessing variant calls](postprocessing_variant_calls/README.md)
+  
   * [vardict_filter_case-control 0.1.3](postprocessing_variant_calls/vardict_filter_case-control_0.1.3.md)
   * [vardict_filter_single-sample 0.1.3](postprocessing_variant_calls/vardict_filter_single-sample_0.1.3.md)
-  * [maf_annotated_by_bed](postprocessing_variant_calls/maf_annotated_by_bed.md)
+  * [maf_annotated_by_bed](postprocessing_variant_calls/0.1.7/maf_annotated_by_bed.md)
   
 * [SnpSift](snpsift/README.md)
+  
   * [v5.0](snpsift/snpsift_5.0.md)
-
+  
 * [Trim Galore](trim-galore/README.md)
   
   * [v0.6.2](trim-galore/trim_galore_0.6.2.md)
   
 * [Ubuntu utilites](ubuntu-utilites/README.md)
+  
   * [v18.04](ubuntu-utilites/utilities_ubuntu_18.04.md)
-
+  
 * [VarDictJava](vardictjava/README.md)
   * [v1.8.2](vardictjava/vardictjava_1.8.2.md)
 
