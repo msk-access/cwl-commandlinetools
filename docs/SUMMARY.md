@@ -110,7 +110,7 @@
   
   * [vardict_filter_case-control 0.1.5](postprocessing_variant_calls/vardict_filter_case-control_0.1.5.md)
   * [vardict_filter_single-sample 0.1.5](postprocessing_variant_calls/vardict_filter_single-sample_0.1.5.md)
-  * [maf_annotated_by_bed_0.1.7](postprocessing_variant_calls/maf_annotated_by_bed_0.1.7.md)
+  * [maf_annotated_by_bed_0.2.0](postprocessing_variant_calls/maf_annotated_by_bed_0.2.0.md)
   
 * [SnpSift](snpsift/README.md)
   

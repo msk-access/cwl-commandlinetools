@@ -42,7 +42,7 @@ outputs:
   - id: output
     type: File
     outputBinding:
-      glob: '*.csv'
+      glob: '*.maf'
 label: maf_annotated_by_bed
 arguments:
   - maf
@@ -53,7 +53,7 @@ requirements:
     ramMin: 8000
     coresMin: 2
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.7'
+    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.2.0'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
