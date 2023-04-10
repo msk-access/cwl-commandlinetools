@@ -57,9 +57,9 @@
   * [1.2.5](../getbasecountsmultisample/1.2.5/README.md)
 
 * [Manta](manta/README.md)
-  
+
   * [Manta v1.5.1](manta/manta_1.5.1.md)
-  
+
 * [Marianas](marianas/README.md)
   * [Collapsing First Pass v1.8.1](marianas/marianas_collapsing_first_pass_1.8.1.md)
   * [Collapsing Second Pass v1.8.1](marianas/marianas_collapsing_second_pass_1.8.1.md)
@@ -107,23 +107,23 @@
   * [MarkDuplicates v4.1.8.1](picard-tools/picard_mark_duplicates_4.1.8.1.md)
 
 * [Postprocessing variant calls](postprocessing_variant_calls/README.md)
-  
+
   * [vardict_filter_case-control 0.1.5](postprocessing_variant_calls/vardict_filter_case-control_0.1.5.md)
   * [vardict_filter_single-sample 0.1.5](postprocessing_variant_calls/vardict_filter_single-sample_0.1.5.md)
-  * [maf_annotated_by_bed_0.1.7](postprocessing_variant_calls/maf_annotated_by_bed_0.1.7.md)
-  
+  * [maf_annotated_by_bed_0.2.2](postprocessing_variant_calls/maf_annotated_by_bed_0.2.2.md)
+
 * [SnpSift](snpsift/README.md)
-  
+
   * [v5.0](snpsift/snpsift_5.0.md)
-  
+
 * [Trim Galore](trim-galore/README.md)
-  
+
   * [v0.6.2](trim-galore/trim_galore_0.6.2.md)
-  
+
 * [Ubuntu utilites](ubuntu-utilites/README.md)
-  
+
   * [v18.04](ubuntu-utilites/utilities_ubuntu_18.04.md)
-  
+
 * [VarDictJava](vardictjava/README.md)
   * [v1.8.2](vardictjava/vardictjava_1.8.2.md)
 
@@ -134,4 +134,4 @@
   * [CountReads v3.1.1](waltz/waltz_count_reads_3.1.1.md)
   * [PileupMetrics v3.1.1](waltz/waltz_pileupmatrices_3.1.1.md)
 
-  
+

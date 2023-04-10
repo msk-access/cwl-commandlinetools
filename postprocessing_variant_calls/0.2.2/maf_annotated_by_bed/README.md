@@ -4,7 +4,7 @@
 
 | Tool                         | Version | Location                                              |
 | ---------------------------- | ------- | ----------------------------------------------------- |
-| postprocessing_variant_calls | 0.1.7   | ghcr.io/msk-access/postprocessing_variant_calls:0.1.7 |
+| postprocessing_variant_calls | 0.2.2   | ghcr.io/msk-access/postprocessing_variant_calls:0.2.2 |
 
 ## CWL
 
@@ -33,9 +33,9 @@
 usage: maf_annotated_by_bed.cwl
        [-h] [--memory_per_job MEMORY_PER_JOB]
        [--memory_overhead MEMORY_OVERHEAD]
-       [--number_of_threads NUMBER_OF_THREADS] 
+       [--number_of_threads NUMBER_OF_THREADS]
        --input_maf INPUT_MAF
-       --input_bed INPUT_BED 
+       --input_bed INPUT_BED
        [--output_filename OUTPUT_FILENAME]
        [--column_name COLUMN_NAME]
        [job_order]
