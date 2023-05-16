@@ -71,7 +71,7 @@ inputs:
       position: 0
       prefix: '-n'
   - id: output
-    type: string?
+    type: 'string[]?'
     inputBinding:
       position: 0
       prefix: '-o'
