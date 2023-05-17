@@ -58,7 +58,7 @@ inputs:
       (optional) Prefix for naming output file, if not given will use name from
       per base coverage file
   - id: flagstat
-    type: string?
+    type: File?
     inputBinding:
       position: 900
       prefix: '--flagstat'
