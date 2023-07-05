@@ -112,16 +112,16 @@
   * [vardict_filter_single-sample 0.1.5](postprocessing_variant_calls/vardict_filter_single-sample_0.1.5.md)
   * [maf_annotated_by_bed_0.2.2](postprocessing_variant_calls/maf_annotated_by_bed_0.2.2.md)
 
-* [SnpSift](snpsift/README.md)
+* [sequence_qc](sequence_qc/README.md)
+  * [v0.2.4](sequence_qc/sequence_qc_v0.2.24.md)
 
+* [SnpSift](snpsift/README.md)
   * [v5.0](snpsift/snpsift_5.0.md)
 
 * [Trim Galore](trim-galore/README.md)
-
   * [v0.6.2](trim-galore/trim_galore_0.6.2.md)
 
 * [Ubuntu utilites](ubuntu-utilites/README.md)
-
   * [v18.04](ubuntu-utilites/utilities_ubuntu_18.04.md)
 
 * [VarDictJava](vardictjava/README.md)
@@ -133,5 +133,3 @@
 * [Waltz](waltz/README.md)
   * [CountReads v3.1.1](waltz/waltz_count_reads_3.1.1.md)
   * [PileupMetrics v3.1.1](waltz/waltz_pileupmatrices_3.1.1.md)
-
-

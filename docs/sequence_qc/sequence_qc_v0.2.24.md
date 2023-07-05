@@ -4,7 +4,7 @@
 
 | Tool | Version | Location |
 |--- |--- |--- |
-| sequence_qc   | 0.1.19   |  <https://pypi.org/project/sequence-qc/> |
+| sequence_qc   | 0.2.24   |  <https://github.org/msk-access/sequence-qc/> |
 
 ## CWL
 
