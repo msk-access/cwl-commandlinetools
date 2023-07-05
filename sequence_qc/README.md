@@ -24,7 +24,7 @@
 
 #Using toil-cwl-runner
 > mkdir tool_toil_log
-> toil-cwl-runner --singularity --logFile /path/to/tool_toil_log/cwltoil.log  --jobStore /path/to/tool_jobStore --batchSystem lsf --workDir /path/to/tool_toil_log --outdir . --writeLogs /path/to/tool_toil_log --logLevel DEBUG --stats --retryCount 2 --disableCaching --maxLogFileSize 20000000000 /path/to/sequence_qc_0.1.19/sequence_qc_0.1.19.cwl /path/to/inputs.yaml > tool_toil.stdout 2> tool_toil.stderr &
+> toil-cwl-runner --singularity --logFile /path/to/tool_toil_log/cwltoil.log  --jobStore /path/to/tool_jobStore --batchSystem lsf --workDir /path/to/tool_toil_log --outdir . --writeLogs /path/to/tool_toil_log --logLevel DEBUG --stats --retryCount 2 --disableCaching --maxLogFileSize 20000000000 /path/to/sequence_qc/0.2.24/sequence_qc_0.2.24.cwl /path/to/inputs.yaml > tool_toil.stdout 2> tool_toil.stderr &
 ```
 
 ### Usage
