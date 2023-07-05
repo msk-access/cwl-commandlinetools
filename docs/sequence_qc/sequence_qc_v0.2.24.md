@@ -4,7 +4,7 @@
 
 | Tool | Version | Location |
 |--- |--- |--- |
-| sequence_qc   | 0.2.24   |  <https://github.org/msk-access/sequence-qc/> |
+| sequence_qc   | 0.2.24   |  <https://github.org/msk-access/sequence_qc/> |
 
 ## CWL
 
