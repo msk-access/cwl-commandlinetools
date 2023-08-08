@@ -1,20 +1,9 @@
-toil-ionox0[cwl]==0.0.7
+toil[cwl]
 pytz
-typing==3.7.4
-
-# From fixing pkg_resources.ContextualVersionConflict:
-ruamel.yaml==0.15.77
-
-# From requirements_dev
-pip>=21.1
-bumpversion==0.5.3
-wheel==0.32.1
-watchdog==0.9.0
-flake8==3.5.0
-tox==3.5.2
-coverage==4.5.1
-Sphinx==1.8.1
-twine==1.12.1
-pytest==3.8.2
-pytest-runner==4.2
-coloredlogs==10.0.0
+bumpversion
+flake8
+tox
+twine
+pytest
+pytest-runner
+coloredlogs
