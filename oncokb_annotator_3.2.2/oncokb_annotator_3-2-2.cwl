@@ -71,7 +71,14 @@ outputs:
   - id: outputMaf
     type: File?
     outputBinding:
-      glob: $(inputs.outputMafName)
+      glob: |-
+        ${ 
+            if (inputs.outputMafName) { 
+                return inputs.outputMafName
+            } else { 
+                return inputs.inputMafFile.basename.replace(/.maf/, 'oncoKB.maf') 
+            } 
+        }
 label: oncokb_annotator
 requirements:
   - class: DockerRequirement

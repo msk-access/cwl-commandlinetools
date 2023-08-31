@@ -42,7 +42,14 @@ outputs:
   - id: output
     type: File
     outputBinding:
-      glob: '*.maf'
+      glob: |-
+        ${ 
+            if (inputs.output_filename) { 
+                return inputs.output_filename 
+            } else { 
+                return inputs.input_maf.basename.replace(/.maf/, 'mafAnnotatedByBed.vcf') 
+            } 
+        }
 label: maf_annotated_by_bed
 arguments:
   - maf
