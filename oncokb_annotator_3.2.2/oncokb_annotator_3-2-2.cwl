@@ -76,7 +76,7 @@ outputs:
             if (inputs.outputMafName) { 
                 return inputs.outputMafName
             } else { 
-                return inputs.inputMafFile.basename.replace(/.maf/, 'oncoKB.maf') 
+                return inputs.inputMafFile.basename.replace('.maf', 'oncoKB.maf') 
             } 
         }
 label: oncokb_annotator
