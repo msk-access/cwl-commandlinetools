@@ -47,7 +47,7 @@ outputs:
             if (inputs.output_filename) { 
                 return inputs.output_filename 
             } else { 
-                return inputs.input_maf.basename.replace(/.maf/, 'mafAnnotatedByBed.maf') 
+                return inputs.input_maf.replace(/.maf/, 'mafAnnotatedByBed.maf') 
             } 
         }
 label: maf_annotated_by_bed
