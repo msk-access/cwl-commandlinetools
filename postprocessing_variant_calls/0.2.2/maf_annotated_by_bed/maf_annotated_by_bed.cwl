@@ -28,7 +28,7 @@ inputs:
       position: 1
       prefix: '-b'
   - id: output_filename
-    type: string?
+    type: string
     inputBinding:
       position: 3
       prefix: '-o'
