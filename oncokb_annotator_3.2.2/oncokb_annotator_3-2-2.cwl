@@ -76,10 +76,20 @@ outputs:
             if (inputs.outputMafName) { 
                 return inputs.outputMafName
             } else { 
-                return inputs.inputMafFile.basename.replace('.maf', 'oncoKB.maf') 
+                return inputs.inputMafFile.basename.replace('.maf', '_oncoKB.maf') 
             } 
         }
 label: oncokb_annotator
+arguments:
+  - prefix: '--outputMaf'
+    valueFrom: |-
+      ${
+          if(inputs.outputMafName){
+              return inputs.outputMafName
+          } else {
+              return inputs.inputMafFile.basename.replace('.maf', '_oncoKB.maf')
+          }
+      }
 requirements:
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/oncokbannotator:3.2.2'

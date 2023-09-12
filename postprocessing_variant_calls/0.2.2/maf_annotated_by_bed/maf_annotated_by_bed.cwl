@@ -47,7 +47,7 @@ outputs:
             if (inputs.output_filename) { 
                 return inputs.output_filename 
             } else { 
-                return inputs.input_maf.basename.replace('.maf', 'mafAnnotatedByBed.maf') 
+                return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed.maf') 
             } 
         }
 label: maf_annotated_by_bed
@@ -55,6 +55,16 @@ arguments:
   - maf
   - annotate
   - mafbybed
+  - position: 2
+    prefix: '--output'
+    valueFrom: |-
+      ${
+          if(inputs.output_filename){
+              return inputs.output_filename
+          } else {
+              return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed')
+          }
+      }
 requirements:
   - class: ResourceRequirement
     ramMin: 8000
