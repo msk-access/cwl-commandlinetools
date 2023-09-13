@@ -17,7 +17,7 @@ inputs:
       prefix: '-i'
     doc: input maf file for annotation
   - id: outputMafName
-    type: string
+    type: string?
     inputBinding:
       position: 0
       prefix: '-o'
@@ -81,7 +81,8 @@ outputs:
         }
 label: oncokb_annotator
 arguments:
-  - prefix: '--outputMaf'
+  - position: 0
+    prefix: '--outputMaf'
     valueFrom: |-
       ${
           if(inputs.outputMafName){
