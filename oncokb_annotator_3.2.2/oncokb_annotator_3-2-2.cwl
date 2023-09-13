@@ -82,7 +82,7 @@ outputs:
 label: oncokb_annotator
 arguments:
   - position: 0
-    prefix: '--outputMaf'
+    prefix: '-o'
     valueFrom: |-
       ${
           if(inputs.outputMafName){
