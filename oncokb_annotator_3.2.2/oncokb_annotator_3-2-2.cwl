@@ -17,7 +17,7 @@ inputs:
       prefix: '-i'
     doc: input maf file for annotation
   - id: outputMafName
-    type: string
+    type: string?
     inputBinding:
       position: 0
       prefix: '-o'
@@ -71,8 +71,26 @@ outputs:
   - id: outputMaf
     type: File?
     outputBinding:
-      glob: $(inputs.outputMafName)
+      glob: |-
+        ${ 
+            if (inputs.outputMafName) { 
+                return inputs.outputMafName
+            } else { 
+                return inputs.inputMafFile.basename.replace('.maf', '_oncoKB.maf') 
+            } 
+        }
 label: oncokb_annotator
+arguments:
+  - position: 0
+    prefix: '-o'
+    valueFrom: |-
+      ${
+          if(inputs.outputMafName){
+              return inputs.outputMafName
+          } else {
+              return inputs.inputMafFile.basename.replace('.maf', '_oncoKB.maf')
+          }
+      }
 requirements:
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/oncokbannotator:3.2.2'

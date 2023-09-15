@@ -62,7 +62,7 @@ outputs:
             if (inputs.output_file_name) { 
                 return inputs.output_file_name 
             } else { 
-                return inputs.input_vcf.basename.replace(/.vcf/, 'snpsift.vcf') 
+                return inputs.input_vcf.basename.replace(/.vcf/, '_snpsift.vcf') 
             } 
         }
 label: snpsift_annotate_5.0

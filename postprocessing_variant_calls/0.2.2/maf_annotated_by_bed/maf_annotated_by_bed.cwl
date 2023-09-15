@@ -28,7 +28,7 @@ inputs:
       position: 1
       prefix: '-b'
   - id: output_filename
-    type: string?
+    type: string
     inputBinding:
       position: 3
       prefix: '-o'
@@ -42,12 +42,29 @@ outputs:
   - id: output
     type: File
     outputBinding:
-      glob: '*.maf'
+      glob: |-
+        ${ 
+            if (inputs.output_filename) { 
+                return inputs.output_filename 
+            } else { 
+                return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed.maf') 
+            } 
+        }
 label: maf_annotated_by_bed
 arguments:
   - maf
   - annotate
   - mafbybed
+  - position: 2
+    prefix: '--output'
+    valueFrom: |-
+      ${
+          if(inputs.output_filename){
+              return inputs.output_filename
+          } else {
+              return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed')
+          }
+      }
 requirements:
   - class: ResourceRequirement
     ramMin: 8000
