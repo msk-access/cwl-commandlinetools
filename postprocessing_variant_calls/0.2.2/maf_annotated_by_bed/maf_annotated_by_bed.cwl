@@ -89,4 +89,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': postprocessing_variant_calls
-    'doap:revision': 0.0.1
+    'doap:revision': 0.2.2
