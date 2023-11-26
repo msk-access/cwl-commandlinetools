@@ -46,7 +46,7 @@ outputs:
                 return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf') 
             } 
         }
-label: pv_maf_tag
+label: pv_maf_filter
 arguments:
   - maf
   - filter
