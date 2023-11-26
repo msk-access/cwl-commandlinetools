@@ -5,7 +5,7 @@ $namespaces:
   doap: 'http://usefulinc.com/ns/doap#'
   foaf: 'http://xmlns.com/foaf/0.1/'
   sbg: 'https://www.sevenbridges.com/'
-id: pv_maf_annotated_by_bed
+id: pv_maf_annotated_by_tsv
 baseCommand:
   - pv
 inputs:
@@ -51,7 +51,7 @@ outputs:
                 return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf') 
             } 
         }
-label: pv_maf_annotatedByBed
+label: pv_maf_annotatedByTsv
 arguments:
   - maf
   - annotate
