@@ -33,12 +33,17 @@ inputs:
     type: string?
     inputBinding:
       position: 0
-      prefix: '--cname'
-  - id: input_bed_file
+      prefix: '-oc'
+  - id: input_tsv_file
     type: File
     inputBinding:
       position: 1
-      prefix: '-b'
+      prefix: '-t'
+  - id: separator
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '-sep'
 outputs:
   - id: output
     type: File?
@@ -55,7 +60,7 @@ label: pv_maf_annotatedByTsv
 arguments:
   - maf
   - annotate
-  - mafbybed
+  - mafbytsv
   - position: 2
     prefix: '--output'
     valueFrom: |-
