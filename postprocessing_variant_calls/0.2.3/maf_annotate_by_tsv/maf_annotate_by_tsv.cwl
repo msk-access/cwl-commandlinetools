@@ -44,6 +44,11 @@ inputs:
     inputBinding:
       position: 0
       prefix: '-sep'
+  - id: values
+    type: 'string[]?'
+    inputBinding:
+      position: 0
+      prefix: '-v'
 outputs:
   - id: output
     type: File?
