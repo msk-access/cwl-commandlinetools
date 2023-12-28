@@ -2,9 +2,9 @@
 
 ## Version of tools in docker image (/container/Dockerfile)
 
-| Tool                         | Version | Location                                             |
-| ---------------------------- | ------- | ---------------------------------------------------- |
-| postprocessing_variant_calls | dev_7   | ghcr.io/msk-access/postprocessing_variant_calls:dev7 |
+| Tool                         | Version      | Location                                                     |
+| ---------------------------- | ------------ | ------------------------------------------------------------ |
+| postprocessing_variant_calls | chipvar_dev7 | ghcr.io/msk-access/postprocessing_variant_calls:chipvar_dev7 |
 
 ## CWL
 
@@ -30,7 +30,7 @@
 ### Usage
 
 ```shell
-usage: maf_annotate_by_tsv.cwl
+usage: maf_annotated_by_tsv.cwl
        [-h] [--memory_per_job MEMORY_PER_JOB]
        [--memory_overhead MEMORY_OVERHEAD]
        [--number_of_threads NUMBER_OF_THREADS] --input_maf INPUT_MAF
