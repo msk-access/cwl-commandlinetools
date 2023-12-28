@@ -4,7 +4,7 @@
 
 | Tool                         | Version | Location                                             |
 | ---------------------------- | ------- | ---------------------------------------------------- |
-| postprocessing_variant_calls | dev_7   | ghcr.io/msk-access/postprocessing_variant_calls:dev7 |
+| postprocessing_variant_calls | chipvar_dev7  | ghcr.io/msk-access/postprocessing_variant_calls:chipvar_dev7 |
 
 ## CWL
 
