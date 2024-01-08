@@ -5,7 +5,7 @@ $namespaces:
   doap: 'http://usefulinc.com/ns/doap#'
   foaf: 'http://xmlns.com/foaf/0.1/'
   sbg: 'https://www.sevenbridges.com/'
-id: maf_annotated_by_bed
+id: pv_maf_annotated_by_tsv
 baseCommand:
   - pv
 inputs:
@@ -22,55 +22,66 @@ inputs:
     inputBinding:
       position: 0
       prefix: '-m'
-  - id: input_bed
+  - 'sbg:toolDefaultValue': output.maf
+    id: output_maf_name
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '-o'
+  - 'sbg:toolDefaultValue': tsv
+    id: output_column_name
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '-oc'
+  - id: input_tsv_file
     type: File
     inputBinding:
       position: 1
-      prefix: '-b'
-  - id: output_filename
-    type: string
-    inputBinding:
-      position: 3
-      prefix: '-o'
-  - 'sbg:toolDefaultValue': annotation
-    id: column_name
+      prefix: '-t'
+  - id: separator
     type: string?
     inputBinding:
-      position: 4
-      prefix: '-c'
+      position: 0
+      prefix: '-sep'
+  - id: values
+    type: 'string[]?'
+    inputBinding:
+      position: 0
+      prefix: '-v'
 outputs:
   - id: output
-    type: File
+    type: File?
     outputBinding:
       glob: |-
         ${ 
-            if (inputs.output_filename) { 
-                return inputs.output_filename 
+            if (inputs.output_maf_name) { 
+                return inputs.output_maf_name 
             } else { 
-                return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed.maf') 
+                return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf') 
             } 
         }
-label: maf_annotated_by_bed
+label: pv_maf_annotatedByTsv
 arguments:
   - maf
   - annotate
-  - mafbybed
+  - mafbytsv
   - position: 2
     prefix: '--output'
     valueFrom: |-
-      ${
-          if(inputs.output_filename){
-              return inputs.output_filename
-          } else {
-              return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed')
-          }
+      ${ 
+          if (inputs.output_maf_name) { 
+              return inputs.output_maf_name 
+          } else { 
+              return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf') 
+          } 
       }
 requirements:
   - class: ResourceRequirement
     ramMin: 8000
     coresMin: 2
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.2.2'
+    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:chipvar_dev10'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
@@ -89,4 +100,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': postprocessing_variant_calls
-    'doap:revision': 0.2.2
+    'doap:revision': 0.2.3

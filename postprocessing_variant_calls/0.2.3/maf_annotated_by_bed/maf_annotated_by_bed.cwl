@@ -70,7 +70,7 @@ requirements:
     ramMin: 8000
     coresMin: 2
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.2.2'
+    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:chipvar_dev10'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
@@ -89,4 +89,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': postprocessing_variant_calls
-    'doap:revision': 0.2.2
+    'doap:revision': 0.2.3
