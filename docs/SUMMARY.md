@@ -94,6 +94,7 @@
   * [maf_annotated_by_tsv_0.2.3](postprocessing_variant_calls/maf_annotated_by_tsv_0.2.3.md)
   * [maf_filter_cmoch_0.2.3](postprocessing_variant_calls/maf_filter_cmoch_0.2.3.md)
   * [maf_tag_cmoch_0.2.3](postprocessing_variant_calls/maf_tag_cmoch_0.2.3.md)
+  * [maf_annotated_by_bed_0.2.3](postprocessing_variant_calls/maf_annotated_by_bed_0.2.3.md)
 * [sequence_qc](sequence_qc/README.md)
   * [v0.2.4](sequence_qc/sequence_qc_v0.2.24.md)
 * [SnpSift](snpsift/README.md)
