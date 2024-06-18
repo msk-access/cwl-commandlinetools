@@ -7,7 +7,6 @@
 * access_utils
   * [0.1.1](../access_utils/0.1.1/README.md)
 * [bcftools](bcftools/README.md)
-
   * [bcftools bgzip v1.15.1](bcftools/bcftools_bgzip_v1.15.1.md)
   * [bcftools concat v1.15.1](bcftools/bcftools_concat_1.15.1.md)
   * [bcftools norm v1.15.1](bcftools/bcftools_norm_v1.15.1.md)
@@ -46,7 +45,6 @@
 * GetBaseCountsMultiSample
   * [1.2.5](../getbasecountsmultisample/1.2.5/README.md)
 * [Manta](manta/README.md)
-
   * [Manta v1.5.1](manta/manta_1.5.1.md)
 * [Marianas](marianas/README.md)
   * [Collapsing First Pass v1.8.1](marianas/marianas_collapsing_first_pass_1.8.1.md)
@@ -63,13 +61,10 @@
 * [Mosdepth](mosdepth/README.md)
   * [0.3.3](mosdepth/mosdepth_0.3.3.md)
 * [Octopus](octopus/README.md)
-
   * [v0.7.4](octopus/octopus_0.7.4.md)
 * [Oncokb_annotator](oncokb_annotator/README.md)
-
   * [v3.2.2](oncokb_annotator/oncokb_annotator_3.2.2.md)
 * [Picard Tools](picard-tools/README.md)
-
   * [AddOrReplaceReadGroups v1.96](picard-tools/picard_add_or_replace_read_groups_1.96.md)
   * [AddOrReplaceReadGroups v2.21.2](picard-tools/picard_add_or_replace_read_groups_2.21.2.md)
   * [AddOrReplaceReadGroups v4.1.8.1](picard-tools/picard_add_or_replace_read_groups_4.1.8.1.md)
@@ -87,7 +82,6 @@
   * [MarkDuplicates v2.21.2](picard-tools/picard_mark_duplicates_2.21.2.md)
   * [MarkDuplicates v4.1.8.1](picard-tools/picard_mark_duplicates_4.1.8.1.md)
 * [Postprocessing variant calls](postprocessing_variant_calls/README.md)
-
   * [vardict_filter_case-control 0.1.5](postprocessing_variant_calls/vardict_filter_case-control_0.1.5.md)
   * [vardict_filter_single-sample 0.1.5](postprocessing_variant_calls/vardict_filter_single-sample_0.1.5.md)
   * [maf_annotated_by_bed_0.2.2](postprocessing_variant_calls/maf_annotated_by_bed_0.2.2.md)
