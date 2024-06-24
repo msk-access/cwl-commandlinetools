@@ -54,12 +54,12 @@ arguments:
   - position: 0
     valueFrom: |-
       ${
-        if(inputs.memory_per_job && inputs.memory_overhead) {   
+        if(inputs.memory_per_job && inputs.memory_overhead) {
           if(inputs.memory_per_job % 1000 == 0) {
             return "-Xms" + (inputs.memory_per_job/1000).toString() + "G"
           }
           else {
-            return "-Xms" + Math.floor((inputs.memory_per_job/1000)).toString() + "G" 
+            return "-Xms" + Math.floor((inputs.memory_per_job/1000)).toString() + "G"
           }
         }
         else if (inputs.memory_per_job && !inputs.memory_overhead){
@@ -67,7 +67,7 @@ arguments:
             return "-Xms" + (inputs.memory_per_job/1000).toString() + "G"
           }
           else {
-            return "-Xms" + Math.floor((inputs.memory_per_job/1000)).toString() + "G" 
+            return "-Xms" + Math.floor((inputs.memory_per_job/1000)).toString() + "G"
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
@@ -80,12 +80,12 @@ arguments:
   - position: 0
     valueFrom: |-
       ${
-        if(inputs.memory_per_job && inputs.memory_overhead) {   
+        if(inputs.memory_per_job && inputs.memory_overhead) {
           if(inputs.memory_per_job % 1000 == 0) {
             return "-Xmx" + (inputs.memory_per_job/1000).toString() + "G"
           }
           else {
-            return "-Xmx" + Math.floor((inputs.memory_per_job/1000)).toString() + "G" 
+            return "-Xmx" + Math.floor((inputs.memory_per_job/1000)).toString() + "G"
           }
         }
         else if (inputs.memory_per_job && !inputs.memory_overhead){
@@ -93,14 +93,14 @@ arguments:
             return "-Xmx" + (inputs.memory_per_job/1000).toString() + "G"
           }
           else {
-            return "-Xmx" + Math.floor((inputs.memory_per_job/1000)).toString() + "G" 
+            return "-Xmx" + Math.floor((inputs.memory_per_job/1000)).toString() + "G"
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx8G"
+          return "-Xmx24G"
         }
         else {
-            return "-Xmx8G"
+            return "-Xmx24G"
         }
       }
   - position: 0
@@ -110,8 +110,8 @@ arguments:
     valueFrom: org.mskcc.marianas.umi.duplex.fastqprocessing.ProcessLoopUMIFastq
 requirements:
   - class: ResourceRequirement
-    ramMin: 20000
-    coresMin: 1
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/marianas:1.8.1'
   - class: InlineJavascriptRequirement

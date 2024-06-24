@@ -27,7 +27,7 @@ inputs:
       position: 0
     doc: >-
       Full path to gziped READ1 fastq files, can be specified multiple times for
-      example: --fastq1 test_part1_R1.fastq.gz --fastq1 test_part2_R1.fastq.gz 
+      example: --fastq1 test_part1_R1.fastq.gz --fastq1 test_part2_R1.fastq.gz
       [required]
   - id: fastq2
     type:
@@ -39,7 +39,7 @@ inputs:
       position: 1
     doc: >-
       Full path to gziped READ2 fastq files, can be specified multiple times for
-      example: --fastq1 test_part1_R2.fastq.gz --fastq1 test_part2_R2.fastq.gz 
+      example: --fastq1 test_part1_R2.fastq.gz --fastq1 test_part2_R2.fastq.gz
       [required]
   - id: output_path
     type: string?
@@ -88,8 +88,8 @@ outputs:
         }
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/merge_fastq:0.1.7'
   - class: InlineJavascriptRequirement

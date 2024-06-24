@@ -35,14 +35,14 @@ outputs:
             if(inputs.output_file_name) {
                 return inputs.output_file_name
             } else {
-                return inputs.input.basename.replace(/.vcf/, '.sorted.vcf') 
-            } 
+                return inputs.input.basename.replace(/.vcf/, '.sorted.vcf')
+            }
         }
 label: sortBed
 requirements:
   - class: ResourceRequirement
-    ramMin: 2000
-    coresMin: 1
+    ramMin: 24000
+    coresMin: 2
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bedtools:v2.28.0_cv2'
   - class: InitialWorkDirRequirement
@@ -54,8 +54,8 @@ stdout: |-
       if(inputs.output_file_name) {
           return inputs.output_file_name
       } else {
-          return inputs.input.basename.replace(/.vcf/, '.sorted.vcf') 
-      } 
+          return inputs.input.basename.replace(/.vcf/, '.sorted.vcf')
+      }
   }
 'dct:contributor':
   - class: 'foaf:Organization'

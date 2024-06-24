@@ -46,8 +46,8 @@ outputs:
 label: fgbio_postprocessing_simplex_filter_0.1.8
 requirements:
   - class: ResourceRequirement
-    ramMin: 16000
-    coresMin: 2
+    ramMin: 32000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio_postprocessing:0.2.1'
   - class: InlineJavascriptRequirement

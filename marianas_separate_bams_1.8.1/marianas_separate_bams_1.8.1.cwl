@@ -76,10 +76,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx8G"
+          return "-Xmx24G"
         }
         else {
-            return "-Xmx8G"
+            return "-Xmx24G"
         }
       }
   - position: 0
@@ -89,8 +89,8 @@ arguments:
     valueFrom: org.mskcc.marianas.umi.duplex.postprocessing.SeparateBams
 requirements:
   - class: ResourceRequirement
-    ramMin: 30000
-    coresMin: 1
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/marianas:1.8.1'
   - class: InlineJavascriptRequirement

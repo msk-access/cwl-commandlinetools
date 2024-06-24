@@ -429,7 +429,7 @@ arguments:
 requirements:
   - class: ResourceRequirement
     ramMin: 32000
-    coresMin: 4
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'quay.io/cancercollaboratory/dockstore-tool-samtools-view:1.0'
   - class: InlineJavascriptRequirement

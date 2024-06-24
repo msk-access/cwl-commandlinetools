@@ -53,8 +53,8 @@ doc: |
   Run multiqc on log files from supported bioinformatic tools.
 hints:
   - class: ResourceRequirement
-    ramMin: 10000
-    coresMin: 1
+    ramMin: 24000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/multiqc:v1.10.1.7'
 requirements:

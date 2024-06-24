@@ -71,7 +71,7 @@ inputs:
       prefix: COMPRESSION_LEVEL=
       separate: false
     doc: >-
-      Compression level for all compressed files created (e.g. BAM and GELI). 
+      Compression level for all compressed files created (e.g. BAM and GELI).
       Default value:5. This option can be set to 'null' to clear the default
       value.
   - default: true
@@ -82,7 +82,7 @@ inputs:
       prefix: CREATE_INDEX=true
       separate: false
     doc: >-
-      Whether to create a BAM index when writing a coordinate-sorted BAM file. 
+      Whether to create a BAM index when writing a coordinate-sorted BAM file.
       Default value:false. This option can be set to 'null' to clear the default
       value. Possible values:{true, false}
   - id: duplicate_scoring_strategy
@@ -92,7 +92,7 @@ inputs:
       prefix: DUPLICATE_SCORING_STRATEGY=
       separate: false
     doc: >-
-      The scoring strategy for choosing the non-duplicate among candidates. 
+      The scoring strategy for choosing the non-duplicate among candidates.
       Default value:SUM_OF_BASE_QUALITIES. This option can be set to 'null' to
       clear the default value.Possible values: {SUM_OF_BASE_QUALITIES,
       TOTAL_MAPPED_REFERENCE_LENGTH, RANDOM}
@@ -137,7 +137,7 @@ outputs:
 label: picard_mark_duplicates_2.21.2
 arguments:
   - position: 0
-    valueFrom: "${\n  if(inputs.memory_per_job && inputs.memory_overhead) {\n   \n    if(inputs.memory_per_job % 1000 == 0) {\n    \t\n      return \"-Xmx\" + (inputs.memory_per_job/1000).toString() + \"G\"\n    }\n    else {\n      \n      return \"-Xmx\" + Math.floor((inputs.memory_per_job/1000)).toString() + \"G\" \n    }\n  }\n  else if (inputs.memory_per_job && !inputs.memory_overhead){\n    \n    if(inputs.memory_per_job % 1000 == 0) {\n    \t\n      return \"-Xmx\" + (inputs.memory_per_job/1000).toString() + \"G\"\n    }\n    else {\n      \n      return \"-Xmx\" + Math.floor((inputs.memory_per_job/1000)).toString() + \"G\" \n    }\n  }\n  else if(!inputs.memory_per_job && inputs.memory_overhead){\n    \n    return \"-Xmx15G\"\n  }\n  else {\n    \n  \treturn \"-Xmx15G\"\n  }\n}"
+    valueFrom: "${\n  if(inputs.memory_per_job && inputs.memory_overhead) {\n   \n    if(inputs.memory_per_job % 1000 == 0) {\n    \t\n      return \"-Xmx\" + (inputs.memory_per_job/1000).toString() + \"G\"\n    }\n    else {\n      \n      return \"-Xmx\" + Math.floor((inputs.memory_per_job/1000)).toString() + \"G\" \n    }\n  }\n  else if (inputs.memory_per_job && !inputs.memory_overhead){\n    \n    if(inputs.memory_per_job % 1000 == 0) {\n    \t\n      return \"-Xmx\" + (inputs.memory_per_job/1000).toString() + \"G\"\n    }\n    else {\n      \n      return \"-Xmx\" + Math.floor((inputs.memory_per_job/1000)).toString() + \"G\" \n    }\n  }\n  else if(!inputs.memory_per_job && inputs.memory_overhead){\n    \n    return \"-Xmx24G\"\n  }\n  else {\n    \n  \treturn \"-Xmx24G\"\n  }\n}"
   - position: 0
     prefix: '-jar'
     valueFrom: /usr/picard/picard.jar
@@ -156,8 +156,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 2
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'broadinstitute/picard:2.21.2'
   - class: InlineJavascriptRequirement

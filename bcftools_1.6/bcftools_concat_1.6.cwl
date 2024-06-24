@@ -22,11 +22,11 @@ inputs:
   memory_per_job:
     type: ["null",int]
     doc: Memory per job in megabytes
-  
+
   memory_overhead:
     type: ["null",int]
     doc: Memory overhead per job in megabytes
-  
+
   threads:
     type: ["null", string]
     doc: <int> Number of extra output compression threads [0]
@@ -154,8 +154,8 @@ outputs:
 requirements:
   InlineJavascriptRequirement: {}
   ResourceRequirement:
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 2
   DockerRequirement:
     dockerPull: ghcr.io/msk-access/bcftools:1.6
 

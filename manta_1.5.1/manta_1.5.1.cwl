@@ -152,8 +152,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 24000
-    coresMin: 12
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/manta:1.5.1'
   - class: InlineJavascriptRequirement

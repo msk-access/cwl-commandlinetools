@@ -129,12 +129,12 @@ arguments:
              }
          }
          else if(!inputs.memory_per_job && inputs.memory_overhead){
-             return "-Xmx8G"
+             return "-Xmx16G"
          }
          else {
-             return "-Xmx8G"
+             return "-Xm16G"
          }
-           
+
        }
   - position: 0
     prefix: '-jar'
@@ -154,8 +154,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 12000
-    coresMin: 1
+    ramMin: 24000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'broadinstitute/picard:2.21.2'
   - class: InlineJavascriptRequirement

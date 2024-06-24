@@ -114,7 +114,7 @@ inputs:
       prefix: COMPRESSION_LEVEL=
       separate: false
     doc: >-
-      Compression level for all compressed files created (e.g. BAM and GELI). 
+      Compression level for all compressed files created (e.g. BAM and GELI).
       Default value:5. This option can be set to 'null' to clear the default
       value.
   - default: true
@@ -124,7 +124,7 @@ inputs:
       position: 0
       prefix: CREATE_INDEX=true
     doc: >-
-      Whether to create a BAM index when writing a coordinate-sorted BAM file. 
+      Whether to create a BAM index when writing a coordinate-sorted BAM file.
       Default value:false. This option can be set to 'null' to clear the default
       value. Possible values:{true, false}
   - id: temporary_directory
@@ -164,10 +164,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx15G"
+          return "-Xmx24G"
         }
         else {
-            return "-Xmx15G"
+            return "-Xmx24G"
         }
       }
   - position: 0
@@ -206,8 +206,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 25000
-    coresMin: 2
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'mskaccess/picard_1.96:0.6.3'
   - class: InlineJavascriptRequirement

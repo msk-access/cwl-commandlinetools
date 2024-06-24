@@ -168,10 +168,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx15G"
+          return "-Xmx24G"
         }
         else {
-            return "-Xmx15G"
+            return "-Xmx24G"
         }
       }
   - position: 0
@@ -210,8 +210,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 2
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.1'
   - class: InlineJavascriptRequirement
