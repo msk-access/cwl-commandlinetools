@@ -38,6 +38,9 @@ outputs:
         }
 label: general_stats_parse
 requirements:
+  - class: ResourceRequirement
+    ramMin: 16000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/cci_utils:0.3.2'
   - class: InitialWorkDirRequirement

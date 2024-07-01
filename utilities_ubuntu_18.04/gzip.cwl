@@ -63,8 +63,8 @@ outputs:
 label: gzip
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ubuntu:18.04'
   - class: InlineJavascriptRequirement

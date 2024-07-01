@@ -23,7 +23,7 @@ arguments:
 requirements:
   - class: ResourceRequirement
     ramMin: 32000
-    coresMin: 4
+    coresMin: 6
   - class: DockerRequirement
     dockerPull: 'mjblow/samtools-1.9:latest'
   - class: InlineJavascriptRequirement

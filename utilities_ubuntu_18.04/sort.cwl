@@ -44,12 +44,12 @@ arguments:
     prefix: '-S'
     valueFrom: |-
      ${
-        if(inputs.memory_per_job && inputs.memory_overhead) {   
+        if(inputs.memory_per_job && inputs.memory_overhead) {
           if(inputs.memory_per_job % 1000 == 0) {
             return (inputs.memory_per_job/1000).toString() + "G"
           }
           else {
-            return Math.floor((inputs.memory_per_job/1000)).toString() + "G" 
+            return Math.floor((inputs.memory_per_job/1000)).toString() + "G"
           }
         }
         else if (inputs.memory_per_job && !inputs.memory_overhead){
@@ -57,7 +57,7 @@ arguments:
             return (inputs.memory_per_job/1000).toString() + "G"
           }
           else {
-            return Math.floor((inputs.memory_per_job/1000)).toString() + "G" 
+            return Math.floor((inputs.memory_per_job/1000)).toString() + "G"
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
@@ -66,11 +66,11 @@ arguments:
         else {
             return "8G"
         }
-      }    
+      }
 requirements:
   - class: ResourceRequirement
     ramMin: 8000
-    coresMin: 1
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ubuntu:18.04'
   - class: InlineJavascriptRequirement

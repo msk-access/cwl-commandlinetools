@@ -75,7 +75,7 @@ inputs:
       position: 0
       prefix: '--sequence-error-model'
     doc: >-
-      error model will be in the format - [library preparation]<.sequencer>  
+      error model will be in the format - [library preparation]<.sequencer>
       eg: PCR.NOVASEQ
   - id: reference
     type: File
@@ -97,8 +97,8 @@ outputs:
 label: octopus
 requirements:
   - class: ResourceRequirement
-    ramMin: 4000
-    coresMin: 2
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/octopus:0.7.4'
   - class: InlineJavascriptRequirement
@@ -120,4 +120,4 @@ requirements:
   - class: 'doap:Version'
     'doap:name': octopus
     'doap:revision': 0.7.4
- 
+

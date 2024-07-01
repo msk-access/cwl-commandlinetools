@@ -210,8 +210,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 2
+    ramMin: 32000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.1'
   - class: InlineJavascriptRequirement

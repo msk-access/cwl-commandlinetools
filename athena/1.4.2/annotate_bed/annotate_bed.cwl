@@ -65,8 +65,8 @@ outputs:
 label: annotate_bed
 requirements:
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 2
+    ramMin: 24000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/athena:1.4.2'
   - class: InlineJavascriptRequirement

@@ -77,7 +77,7 @@ inputs:
       prefix: COMPRESSION_LEVEL=
       separate: false
     doc: >-
-      Compression level for all compressed files created (e.g. BAM and GELI). 
+      Compression level for all compressed files created (e.g. BAM and GELI).
       Default value:5. This option can be set to 'null' to clear the default
       value.
   - default: true
@@ -87,7 +87,7 @@ inputs:
       position: 0
       prefix: CREATE_INDEX=true
     doc: >-
-      Whether to create a BAM index when writing a coordinate-sorted BAM file. 
+      Whether to create a BAM index when writing a coordinate-sorted BAM file.
       Default value:false. This option can be set to 'null' to clear the default
       value. Possible values:{true, false}
   - default: true
@@ -113,8 +113,8 @@ arguments:
     valueFrom: /usr/local/bin/MarkDuplicates.jar
 requirements:
   - class: ResourceRequirement
-    ramMin: "${\r  if(inputs.memory_per_job && inputs.memory_overhead) {\r   \r    return inputs.memory_per_job + inputs.memory_overhead\r  }\r  else if (inputs.memory_per_job && !inputs.memory_overhead){\r    \r   \treturn inputs.memory_per_job + 2000\r  }\r  else if(!inputs.memory_per_job && inputs.memory_overhead){\r    \r    return 15000 + inputs.memory_overhead\r  }\r  else {\r    \r  \treturn 17000 \r  }\r}"
-    coresMin: "${\r  if (inputs.number_of_threads) {\r    \r   \treturn inputs.number_of_threads \r  }\r  else {\r    \r    return 2\r  }\r}"
+    ramMin: "${\r  if(inputs.memory_per_job && inputs.memory_overhead) {\r   \r    return inputs.memory_per_job + inputs.memory_overhead\r  }\r  else if (inputs.memory_per_job && !inputs.memory_overhead){\r    \r   \treturn inputs.memory_per_job + 2000\r  }\r  else if(!inputs.memory_per_job && inputs.memory_overhead){\r    \r    return 32000 + inputs.memory_overhead\r  }\r  else {\r    \r  \treturn 32000 \r  }\r}"
+    coresMin: "${\r  if (inputs.number_of_threads) {\r    \r   \treturn inputs.number_of_threads \r  }\r  else {\r    \r    return 16\r  }\r}"
   - class: DockerRequirement
     dockerPull: 'mskaccess/picard_1.96:0.6.3'
   - class: InlineJavascriptRequirement

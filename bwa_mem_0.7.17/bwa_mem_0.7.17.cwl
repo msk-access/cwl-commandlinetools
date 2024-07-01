@@ -320,7 +320,7 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 34000
+    ramMin: 48000
     coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bwa:0.7.17'

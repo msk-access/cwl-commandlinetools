@@ -72,12 +72,12 @@ outputs:
     type: File?
     outputBinding:
       glob: |-
-        ${ 
-            if (inputs.outputMafName) { 
+        ${
+            if (inputs.outputMafName) {
                 return inputs.outputMafName
-            } else { 
-                return inputs.inputMafFile.basename.replace('.maf', '_oncoKB.maf') 
-            } 
+            } else {
+                return inputs.inputMafFile.basename.replace('.maf', '_oncoKB.maf')
+            }
         }
 label: oncokb_annotator
 arguments:
@@ -92,6 +92,9 @@ arguments:
           }
       }
 requirements:
+  - class: ResourceRequirement
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/oncokbannotator:3.2.2'
   - class: InlineJavascriptRequirement

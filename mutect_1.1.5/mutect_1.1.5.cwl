@@ -714,8 +714,8 @@ arguments:
   - MuTect
 requirements:
   - class: ResourceRequirement
-    ramMin: 34000
-    coresMin: 1
+    ramMin: 32000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/mutect:1.1.5'
   - class: InlineJavascriptRequirement

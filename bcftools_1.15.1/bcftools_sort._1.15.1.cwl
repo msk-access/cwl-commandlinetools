@@ -48,8 +48,8 @@ outputs:
             if(inputs.output_name) {
                 return inputs.output_name
             } else {
-                return inputs.input.basename.replace(/.vcf/, '.sorted.vcf') 
-            } 
+                return inputs.input.basename.replace(/.vcf/, '.sorted.vcf')
+            }
         }
 label: bcftools_sort
 arguments:
@@ -60,13 +60,13 @@ arguments:
           if(inputs.output_name) {
               return inputs.output_name
           } else {
-              return inputs.input.basename.replace(/.vcf/, '.sorted.vcf') 
-              } 
+              return inputs.input.basename.replace(/.vcf/, '.sorted.vcf')
+              }
           }
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bcftools:1.15.1'
   - class: InitialWorkDirRequirement

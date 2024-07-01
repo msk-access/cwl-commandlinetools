@@ -134,7 +134,7 @@ arguments:
          else {
              return "-Xmx8G"
          }
-           
+
        }
   - position: 0
     prefix: '-jar'
@@ -154,8 +154,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 12000
-    coresMin: 1
+    ramMin: 24000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'mskaccess/picard:0.6.3'
   - class: InlineJavascriptRequirement

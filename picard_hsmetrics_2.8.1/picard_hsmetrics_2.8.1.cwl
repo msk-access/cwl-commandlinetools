@@ -132,8 +132,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 4000
-    coresMin: 1
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'mskaccess/picard:0.6.2'
   - class: InlineJavascriptRequirement

@@ -270,7 +270,7 @@ arguments:
 requirements:
   - class: ResourceRequirement
     ramMin: 16000
-    coresMin: 2
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio:1.2.0'
   - class: InlineJavascriptRequirement

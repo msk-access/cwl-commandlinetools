@@ -62,14 +62,14 @@ outputs:
             if(inputs.output_name) {
                 return inputs.output_name
             } else {
-                return inputs.input.basename.replace(/.vcf/, '_norm.vcf') 
-            } 
+                return inputs.input.basename.replace(/.vcf/, '_norm.vcf')
+            }
         }
 label: bcftools_norm
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bcftools:1.15.1'
   - class: InlineJavascriptRequirement
@@ -78,8 +78,8 @@ stdout: |-
             if(inputs.output_name) {
                 return inputs.output_name
             } else {
-                return inputs.input.basename.replace(/.vcf/, '_norm.vcf') 
-            } 
+                return inputs.input.basename.replace(/.vcf/, '_norm.vcf')
+            }
         }
 'dct:contributor':
   - class: 'foaf:Organization'

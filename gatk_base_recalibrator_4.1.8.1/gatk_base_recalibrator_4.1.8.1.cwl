@@ -300,9 +300,9 @@ arguments:
                   return "-Xmx" + Math.floor((inputs.memory_per_job/1000)).toString() + "G"
               }
            } else if(!inputs.memory_per_job && inputs.memory_overhead){
-              return "-Xmx12G"
+              return "-Xmx16G"
            } else {
-              return "-Xmx12G"
+              return "-Xmx16G"
            }
       }
   - position: 2
@@ -326,7 +326,7 @@ arguments:
 requirements:
   - class: ResourceRequirement
     ramMin: 32000
-    coresMin: 8
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.1'
   - class: InlineJavascriptRequirement

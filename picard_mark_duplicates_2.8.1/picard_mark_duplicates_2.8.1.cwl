@@ -72,7 +72,7 @@ inputs:
       prefix: COMPRESSION_LEVEL=
       separate: false
     doc: >-
-      Compression level for all compressed files created (e.g. BAM and GELI). 
+      Compression level for all compressed files created (e.g. BAM and GELI).
       Default value:5. This option can be set to 'null' to clear the default
       value.
   - default: true
@@ -82,7 +82,7 @@ inputs:
       position: 0
       prefix: CREATE_INDEX=true
     doc: >-
-      Whether to create a BAM index when writing a coordinate-sorted BAM file. 
+      Whether to create a BAM index when writing a coordinate-sorted BAM file.
       Default value:false. This option can be set to 'null' to clear the default
       value. Possible values:{true, false}
   - default: true
@@ -98,7 +98,7 @@ inputs:
       prefix: DUPLICATE_SCORING_STRATEGY=
       separate: false
     doc: >-
-      The scoring strategy for choosing the non-duplicate among candidates. 
+      The scoring strategy for choosing the non-duplicate among candidates.
       Default value:SUM_OF_BASE_QUALITIES. This option can be set to 'null' to
       clear the default value.Possible values: {SUM_OF_BASE_QUALITIES,
       TOTAL_MAPPED_REFERENCE_LENGTH, RANDOM}
@@ -151,8 +151,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 2
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'mskaccess/picard:0.6.3'
   - class: InlineJavascriptRequirement

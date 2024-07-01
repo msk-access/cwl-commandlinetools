@@ -53,12 +53,12 @@ outputs:
       glob: |-
         ${
             return inputs.output_name
-        } 
+        }
 label: bcftools_concat
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bcftools:1.15.1'
   - class: InlineJavascriptRequirement

@@ -39,9 +39,9 @@ outputs:
     type: File
     outputBinding:
       glob: |-
-        ${ 
+        ${
             if(inputs.output_vcf)
-                return inputs.output_vcf; 
+                return inputs.output_vcf;
             return inputs.case_sample_name + "_vardict.vcf"
         }
 arguments:
@@ -56,15 +56,15 @@ arguments:
 requirements:
   - class: ResourceRequirement
     ramMin: 32000
-    coresMin: 4
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/vardictjava:1.8.2'
   - class: InlineJavascriptRequirement
 stdin: $(inputs.input_vcf.path)
 stdout: |-
-  ${ 
+  ${
       if(inputs.output_vcf)
-          return inputs.output_vcf; 
+          return inputs.output_vcf;
       return inputs.case_sample_name + "_vardict.vcf"
   }
 'dct:contributor':

@@ -6,11 +6,11 @@ id: snp-pileup
 
 requirements:
   InlineJavascriptRequirement: {}
-  DockerRequirement: 
+  DockerRequirement:
     dockerPull: roslin/pipeline-htstools:0.1.1
   ResourceRequirement:
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 3
 
 doc: |
   Run snp-pileup on a vcf file

@@ -53,7 +53,7 @@ inputs:
       prefix: '--unpaired1'
     doc: >
       for PE input, if read1 passed QC but read2 not, it will be written to
-      unpaired1. 
+      unpaired1.
   - id: unpaired2_path
     type: string?
     inputBinding:
@@ -115,7 +115,7 @@ inputs:
       position: 0
       prefix: '--max_len2'
     doc: >-
-      if read2 is longer than max_len2, then trim read2 at its tail to make it 
+      if read2 is longer than max_len2, then trim read2 at its tail to make it
       as long as max_len2. Default 0 means no limitation. If it's not specified,
       it will follow read1's settings
   - default: fastp.json
@@ -194,8 +194,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 4
+    ramMin: 24000
+    coresMin: 6
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fastp:0.20.1--h8b12597_0'
   - class: InlineJavascriptRequirement

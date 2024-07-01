@@ -157,8 +157,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 25000
-    coresMin: 2
+    ramMin: 32000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'mskaccess/picard_2.9.0:0.1.0'
   - class: InlineJavascriptRequirement

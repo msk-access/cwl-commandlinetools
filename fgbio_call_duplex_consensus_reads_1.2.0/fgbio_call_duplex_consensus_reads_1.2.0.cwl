@@ -162,10 +162,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx10G"
+          return "-Xmx16G"
         }
         else {
-            return "-Xmx10G"
+            return "-Xmx16G"
         }
       }
   - position: 0
@@ -201,7 +201,7 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 20000
+    ramMin: 32000
     coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio:1.2.0'
