@@ -134,10 +134,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx14G"
+          return "-Xmx16G"
         }
         else {
-            return "-Xmx14G"
+            return "-Xmx16G"
         }
       }
   - position: 0
