@@ -193,11 +193,11 @@ arguments:
         }
         else if (!inputs.memory_per_job && inputs.memory_overhead) {
 
-          return "-Xmx40G"
+          return "-Xmx48G"
         }
         else {
 
-          return "-Xmx40G"
+          return "-Xmx48G"
         }
       }
   - position: 0
@@ -222,7 +222,7 @@ arguments:
 requirements:
   - class: ResourceRequirement
     ramMin: 80000
-    coresMin: 16
+    coresMin: 24
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/abra2:2.22'
   - class: InlineJavascriptRequirement
