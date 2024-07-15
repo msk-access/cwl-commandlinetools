@@ -193,11 +193,11 @@ arguments:
         }
         else if (!inputs.memory_per_job && inputs.memory_overhead) {
 
-          return "-Xmx64G -XX:+ExplicitGCInvokesConcurrent"
+          return "-Xmx64G"
         }
         else {
 
-          return "-Xmx64G -XX:+ExplicitGCInvokesConcurrent"
+          return "-Xmx64G"
         }
       }
   - position: 0
