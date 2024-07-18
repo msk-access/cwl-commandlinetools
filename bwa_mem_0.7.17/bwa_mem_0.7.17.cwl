@@ -320,8 +320,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 60000
-    coresMin: 24
+    ramMin: 96000
+    coresMin: 48
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bwa:0.7.17'
   - class: InlineJavascriptRequirement
