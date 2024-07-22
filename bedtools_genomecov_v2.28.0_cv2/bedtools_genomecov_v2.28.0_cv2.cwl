@@ -54,30 +54,47 @@ label: bedtools_genomecov
 arguments:
   - position: 98
     prefix: ''
+    separate: false
+    shellQuote: false
     valueFrom: '|'
   - position: 99
     prefix: ''
+    shellQuote: false
+    separate: false
     valueFrom: awk
   - position: 99
     prefix: ''
+    separate: false
+    shellQuote: false
     valueFrom: '''$4'
   - position: 99
     prefix: ''
+    separate: false
+    shellQuote: false
     valueFrom: '>'
   - position: 99
     prefix: ''
+    separate: false
     valueFrom: $(20 + '\'')
   - position: 100
     prefix: ''
+    separate: false
+    shellQuote: false
     valueFrom: '|'
   - position: 101
     prefix: ''
+    separate: false
+    shellQuote: false
     valueFrom: grep
   - position: 101
     prefix: ''
+    separate: false
+    shellQuote: false
     valueFrom: '-v'
   - position: 101
     prefix: ''
+    separate: false
+    shellQuote: false
     valueFrom: '''^GL'''
 requirements:
   - class: ShellCommandRequirement
