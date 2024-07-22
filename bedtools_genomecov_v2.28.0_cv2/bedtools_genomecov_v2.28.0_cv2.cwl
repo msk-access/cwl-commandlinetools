@@ -75,6 +75,7 @@ arguments:
   - position: 99
     prefix: ''
     separate: false
+    shellQuote: false
     valueFrom: $(20 + '\'')
   - position: 100
     prefix: ''
