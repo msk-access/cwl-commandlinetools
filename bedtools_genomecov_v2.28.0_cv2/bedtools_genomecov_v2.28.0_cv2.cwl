@@ -38,6 +38,8 @@ inputs:
     doc: >-
       option flag parameter to choose output file format. -bg refers to bedgraph
       format
+  - id: coverage
+    type: int?
 outputs:
   - id: bedtools_genomecove_bedgraph
     type: File
@@ -49,11 +51,39 @@ outputs:
             return inputs.input.basename.replace('.bam','.bedgraph');
           }
 label: bedtools_genomecov
+arguments:
+  - position: 98
+    prefix: ''
+    valueFrom: '|'
+  - position: 99
+    prefix: ''
+    valueFrom: awk
+  - position: 99
+    prefix: ''
+    valueFrom: '''$4'
+  - position: 99
+    prefix: ''
+    valueFrom: '>'
+  - position: 99
+    prefix: ''
+    valueFrom: $(20 + '\'')
+  - position: 100
+    prefix: ''
+    valueFrom: '|'
+  - position: 101
+    prefix: ''
+    valueFrom: grep
+  - position: 101
+    prefix: ''
+    valueFrom: '-v'
+  - position: 101
+    prefix: ''
+    valueFrom: '''^GL'''
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
     ramMin: 24000
-    coresMin: 2
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bedtools:v2.28.0_cv2'
   - class: InlineJavascriptRequirement

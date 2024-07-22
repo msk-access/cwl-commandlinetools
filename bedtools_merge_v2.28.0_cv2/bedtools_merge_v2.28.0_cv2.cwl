@@ -47,7 +47,7 @@ requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
     ramMin: 24000
-    coresMin: 2
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bedtools:v2.28.0_cv2'
   - class: InlineJavascriptRequirement
