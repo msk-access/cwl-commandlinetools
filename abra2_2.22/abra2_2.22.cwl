@@ -201,6 +201,8 @@ arguments:
         }
       }
   - position: 0
+    valueFrom: '-XX:-UseGCOverheadLimit'
+  - position: 0
     prefix: '-jar'
     valueFrom: /usr/local/bin/abra2.jar
   - position: 0
@@ -209,7 +211,7 @@ arguments:
       ${
           if(inputs.number_of_threads)
               return inputs.number_of_threads
-          return runtime.cores
+          return (runtime.cores - 10)
       }
   - position: 0
     prefix: '--tmpdir'
