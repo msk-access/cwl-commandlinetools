@@ -106,8 +106,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 40000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 8
 hints:
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/delly:0.9.1'

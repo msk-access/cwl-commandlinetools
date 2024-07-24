@@ -36,18 +36,18 @@ outputs:
     type: File?
     outputBinding:
       glob: |-
-        ${ 
-            if (inputs.output_file_name) { 
-                return inputs.output_file_name 
-            } else { 
-                return inputs.input.basename.replace(/.vcf/, '.vcf.gz') 
-            } 
+        ${
+            if (inputs.output_file_name) {
+                return inputs.output_file_name
+            } else {
+                return inputs.input.basename.replace(/.vcf/, '.vcf.gz')
+            }
         }
 label: bgzip
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 24000
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bcftools:1.15.1'
   - class: InitialWorkDirRequirement
@@ -55,12 +55,12 @@ requirements:
       - entry: $(inputs.input)
   - class: InlineJavascriptRequirement
 stdout: |-
-  ${ 
-      if (inputs.output_file_name) { 
-          return inputs.output_file_name 
-      } else { 
-          return inputs.input.basename.replace(/.vcf/, '.vcf.gz') 
-      } 
+  ${
+      if (inputs.output_file_name) {
+          return inputs.output_file_name
+      } else {
+          return inputs.input.basename.replace(/.vcf/, '.vcf.gz')
+      }
   }
 'dct:contributor':
   - class: 'foaf:Organization'

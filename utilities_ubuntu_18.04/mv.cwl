@@ -46,7 +46,7 @@ label: mv
 requirements:
   - class: ResourceRequirement
     ramMin: 2000
-    coresMin: 1
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ubuntu:18.04'
   - class: InlineJavascriptRequirement

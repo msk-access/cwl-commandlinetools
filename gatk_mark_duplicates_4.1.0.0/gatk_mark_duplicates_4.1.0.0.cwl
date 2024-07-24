@@ -175,8 +175,8 @@ arguments:
     valueFrom: '-Xms$(parseInt(runtime.ram)/2000)g -Xmx$(parseInt(runtime.ram)/1000)g'
 requirements:
   - class: ResourceRequirement
-    ramMin: 32000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'broadinstitute/gatk:4.1.0.0'
   - class: InlineJavascriptRequirement

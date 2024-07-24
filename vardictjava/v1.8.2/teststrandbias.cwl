@@ -20,8 +20,8 @@ outputs:
       glob: output_teststrandbias.var
 requirements:
   - class: ResourceRequirement
-    ramMin: 12000
-    coresMin: 2
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/vardictjava:1.8.2'
   - class: InlineJavascriptRequirement

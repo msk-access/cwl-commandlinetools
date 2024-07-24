@@ -110,11 +110,11 @@ arguments:
     valueFrom: '$(inputs.input.basename.replace(''bam'', ''sorted.bam''))'
   - position: 0
     prefix: '-@'
-    valueFrom: $(runtime.cores)
+    valueFrom: $(runtime.cores - 4)
 requirements:
   - class: ResourceRequirement
-    ramMin: 32000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'quay.io/cancercollaboratory/dockstore-tool-samtools-sort:1.0'
   - class: InlineJavascriptRequirement

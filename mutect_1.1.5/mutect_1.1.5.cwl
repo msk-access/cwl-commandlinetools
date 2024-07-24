@@ -701,10 +701,10 @@ arguments:
         }
       }
       else if(!inputs.memory_per_job && inputs.memory_overhead){
-        return "-Xmx1G"
+        return "-Xmx24G"
       }
       else {
-          return "-Xmx1G"
+          return "-Xmx24G"
       }
     }
   - '-XX:-UseGCOverheadLimit'
@@ -714,8 +714,8 @@ arguments:
   - MuTect
 requirements:
   - class: ResourceRequirement
-    ramMin: 34000
-    coresMin: 1
+    ramMin: 48000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/mutect:1.1.5'
   - class: InlineJavascriptRequirement

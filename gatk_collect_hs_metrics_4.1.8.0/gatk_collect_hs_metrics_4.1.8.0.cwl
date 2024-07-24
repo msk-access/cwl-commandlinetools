@@ -169,7 +169,7 @@ inputs:
       position: 0
       prefix: '--CREATE_INDEX'
     doc: >-
-      Whether to create a BAM index when writing a coordinate-sorted BAM file. 
+      Whether to create a BAM index when writing a coordinate-sorted BAM file.
       Default value: false. Possible values: {true, false}
   - id: create_md5_file
     type: boolean?
@@ -177,7 +177,7 @@ inputs:
       position: 0
       prefix: '--CREATE_MD5_FILE'
     doc: >-
-      Whether to create an MD5 digest for any BAM or FASTQ files created.   
+      Whether to create an MD5 digest for any BAM or FASTQ files created.
       Default value: false. Possible values: {true, false}
   - id: memory_per_job
     type: int?
@@ -247,10 +247,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx15G"
+          return "-Xmx24G"
         }
         else {
-            return "-Xmx15G"
+            return "-Xmx24G"
         }
       }
   - position: 0
@@ -293,8 +293,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 32000
-    coresMin: 1
+    ramMin: 48000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.0'
   - class: InlineJavascriptRequirement

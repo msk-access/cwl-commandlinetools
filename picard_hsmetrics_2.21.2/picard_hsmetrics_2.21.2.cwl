@@ -181,8 +181,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 4000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'broadinstitute/picard:2.21.2'
   - class: InlineJavascriptRequirement

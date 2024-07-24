@@ -165,12 +165,12 @@ outputs:
     type: File
     outputBinding:
       glob: |-
-        ${ 
-            if (inputs.output_maf) { 
+        ${
+            if (inputs.output_maf) {
                 return inputs.output_maf
-            } else { 
-                return inputs.input_vcf.basename.replace('.vcf', '_vcf2maf.maf') 
-            } 
+            } else {
+                return inputs.input_vcf.basename.replace('.vcf', '_vcf2maf.maf')
+            }
         }
 arguments:
   - position: 0
@@ -180,18 +180,18 @@ arguments:
   - position: 0
     prefix: '--output-maf'
     valueFrom: |-
-      ${ 
-          if (inputs.output_maf) { 
+      ${
+          if (inputs.output_maf) {
               return inputs.output_maf
-          } else { 
-              return inputs.input_vcf.basename.replace('.vcf', '_vcf2maf.maf') 
-          } 
+          } else {
+              return inputs.input_vcf.basename.replace('.vcf', '_vcf2maf.maf')
+          }
       }
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 2
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/vcf2maf:1.6.21'
   - class: InlineJavascriptRequirement

@@ -19,11 +19,11 @@ inputs:
   memory_per_job:
     type: ["null",int]
     doc: Memory per job in megabytes
-  
+
   memory_overhead:
     type: ["null",int]
     doc: Memory overhead per job in megabytes
- 
+
   cache_version:
     type:
     - 'null'
@@ -192,8 +192,8 @@ arguments:
 requirements:
   InlineJavascriptRequirement: {}
   ResourceRequirement:
-    ramMin: 8000
-    coresMin: 2
+    ramMin: 16000
+    coresMin: 4
   DockerRequirement:
     dockerPull: mskaccess/vcf2maf:1.6.17
 

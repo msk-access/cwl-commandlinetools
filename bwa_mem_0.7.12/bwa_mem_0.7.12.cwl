@@ -198,11 +198,11 @@ arguments:
       @RG\\tID:$(inputs.lane_id)\\tSM:$(inputs.sample_id)\\tLB:$(inputs.sample_id)\\tPL:Illumina\\tPU:$(inputs.lane_id)
   - position: 0
     prefix: '-t'
-    valueFrom: $(runtime.cores)
+    valueFrom: $(runtime.cores - 4)
 requirements:
   - class: ResourceRequirement
-    ramMin: 32000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 24
   - class: DockerRequirement
     dockerPull: 'mskcc/bwa_mem:0.7.12'
   - class: InlineJavascriptRequirement

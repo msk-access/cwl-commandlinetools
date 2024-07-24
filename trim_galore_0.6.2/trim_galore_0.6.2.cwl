@@ -157,8 +157,8 @@ outputs:
 label: trim_galore_0.6.2
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 4
+    ramMin: 16000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/trim_galore:0.6.2'
   - class: InlineJavascriptRequirement
