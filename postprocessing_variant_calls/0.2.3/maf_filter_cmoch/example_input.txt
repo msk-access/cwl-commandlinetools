@@ -1,0 +1,4 @@
+input_maf:
+  class: File
+  path: /path/to/input/file.maf
+output_maf_name: maf_tag.maf

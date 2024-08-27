@@ -9,8 +9,8 @@ requirements:
   DockerRequirement:
     dockerPull: roslin/pipeline-facets:1.5.6
   ResourceRequirement:
-    ramMin: 32000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 8
 
 doc: |
   Run FACETS on tumor-normal SNP read counts generated using cmo_snp-pileup
@@ -144,7 +144,7 @@ inputs:
   seed:
     type: ['null', int]
     doc: Set the seed for reproducibility
-    default: 1000 
+    default: 1000
     inputBinding:
       prefix: --seed
 
@@ -164,7 +164,7 @@ outputs:
     outputBinding:
       glob: '*_purity.cncf.txt'
   txt_files_hisens:
-    type: File? 
+    type: File?
     outputBinding:
       glob: '*_hisens.cncf.txt'
   out_files:

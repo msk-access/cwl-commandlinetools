@@ -104,7 +104,7 @@ inputs:
       position: 0
       prefix: '--ATTRIBUTES_TO_REMOVE'
     doc: >
-      Attributes from the alignment record that should be removed when merging. 
+      Attributes from the alignment record that should be removed when merging.
       This overrides
 
       ATTRIBUTES_TO_RETAIN if they share common tags.  This argument may be
@@ -140,7 +140,7 @@ inputs:
       position: 0
       prefix: '--ATTRIBUTES_TO_REVERSE_COMPLEMENT'
     doc: >
-      Attributes on negative strand reads that need to be reverse complemented. 
+      Attributes on negative strand reads that need to be reverse complemented.
       This argument
 
       may be specified 0 or more times. Default value: [E2, SQ].
@@ -334,7 +334,7 @@ inputs:
     inputBinding:
       position: 1
     doc: >
-      SAM or BAM file(s) with alignment data from the first read of a pair. 
+      SAM or BAM file(s) with alignment data from the first read of a pair.
       This argument may
 
       be specified 0 or more times. Default value: null.  Cannot be used in
@@ -361,7 +361,7 @@ inputs:
     inputBinding:
       position: 1
     doc: >
-      SAM or BAM file(s) with alignment data from the second read of a pair. 
+      SAM or BAM file(s) with alignment data from the second read of a pair.
       This argument may
 
       be specified 0 or more times. Default value: null.  Cannot be used in
@@ -440,7 +440,7 @@ inputs:
       position: 0
       prefix: '--CREATE_INDEX'
     doc: >-
-      Whether to create a BAM index when writing a coordinate-sorted BAM file. 
+      Whether to create a BAM index when writing a coordinate-sorted BAM file.
       Default value: false. Possible values: {true, false}
   - id: create_md5_file
     type: boolean?
@@ -448,7 +448,7 @@ inputs:
       position: 0
       prefix: '--CREATE_MD5_FILE'
     doc: >-
-      Whether to create an MD5 digest for any BAM or FASTQ files created.   
+      Whether to create an MD5 digest for any BAM or FASTQ files created.
       Default value: false. Possible values: {true, false}
   - id: use_jdk_deflater
     type: boolean?
@@ -506,10 +506,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx15G"
+          return "-Xmx24G"
         }
         else {
-            return "-Xmx15G"
+            return "-Xmx24G"
         }
       }
   - position: 1
@@ -532,8 +532,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 2
+    ramMin: 48000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.0'
   - class: InlineJavascriptRequirement

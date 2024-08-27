@@ -58,12 +58,12 @@ outputs:
     type: File
     outputBinding:
       glob: |-
-        ${ 
-            if (inputs.output_file_name) { 
-                return inputs.output_file_name 
-            } else { 
-                return inputs.input_vcf.basename.replace(/.vcf/, 'snpsift.vcf') 
-            } 
+        ${
+            if (inputs.output_file_name) {
+                return inputs.output_file_name
+            } else {
+                return inputs.input_vcf.basename.replace(/.vcf/, '_snpsift.vcf')
+            }
         }
 label: snpsift_annotate_5.0
 arguments:
@@ -74,8 +74,8 @@ arguments:
     valueFrom: annotate
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 1
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/snpsift:5.0'
   - class: InlineJavascriptRequirement

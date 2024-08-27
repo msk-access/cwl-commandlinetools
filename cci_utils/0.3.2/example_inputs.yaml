@@ -1,0 +1,3 @@
+dir:  {class: Directory, path: /path/to/sample_info_directory } 
+samples-json:  {class: File, path: /path/to/sample_meta.json } 
+config:  {class: File, path: /path/to/config.yaml } 

@@ -28,7 +28,7 @@ inputs:
       position: 1
       prefix: '-b'
   - id: output_filename
-    type: string?
+    type: string
     inputBinding:
       position: 3
       prefix: '-o'
@@ -42,16 +42,33 @@ outputs:
   - id: output
     type: File
     outputBinding:
-      glob: '*.maf'
+      glob: |-
+        ${
+            if (inputs.output_filename) {
+                return inputs.output_filename
+            } else {
+                return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed.maf')
+            }
+        }
 label: maf_annotated_by_bed
 arguments:
   - maf
   - annotate
   - mafbybed
+  - position: 2
+    prefix: '--output'
+    valueFrom: |-
+      ${
+          if(inputs.output_filename){
+              return inputs.output_filename
+          } else {
+              return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed')
+          }
+      }
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 2
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.2.2'
   - class: InlineJavascriptRequirement
@@ -72,4 +89,4 @@ requirements:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': postprocessing_variant_calls
-    'doap:revision': 0.0.1
+    'doap:revision': 0.2.2

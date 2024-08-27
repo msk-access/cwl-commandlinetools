@@ -104,7 +104,7 @@ label: mosdepth_0.3.3
 arguments:
   - position: 0
     prefix: '-t'
-    valueFrom: $(runtime.cores)
+    valueFrom: $(runtime.cores - 4)
   - position: 99
     valueFrom: $(inputs.prefix)
   - position: 100
@@ -112,8 +112,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 17000
-    coresMin: 2
+    ramMin: 24000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/mosdepth:0.3.3'
   - class: InlineJavascriptRequirement

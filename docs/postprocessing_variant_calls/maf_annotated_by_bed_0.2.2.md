@@ -4,7 +4,7 @@
 
 | Tool                         | Version | Location                                              |
 | ---------------------------- | ------- | ----------------------------------------------------- |
-| postprocessing_variant_calls | 0.2.2   | ghcr.io/msk-access/postprocessing_variant_calls:0.2.2 |
+| postprocessing_variant_calls | 0.2.3 | ghcr.io/msk-access/postprocessing_variant_calls:0.2.3 |
 
 ## CWL
 

@@ -80,16 +80,16 @@ arguments:
       ${
           if(inputs.input_bam_control)
               return inputs.input_bam_case + "|" + inputs.input_bam_control;
-          return inputs.input_bam_case 
+          return inputs.input_bam_case
 
       }
 requirements:
   - class: EnvVarRequirement
     envDef:
-      JAVA_OPTS: '"-Xms8g" "-Xmx95g"'
+      JAVA_OPTS: '"-Xms8g" "-Xmx24g"'
   - class: ResourceRequirement
-    ramMin: 64000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/vardictjava:1.8.2'
   - class: InlineJavascriptRequirement

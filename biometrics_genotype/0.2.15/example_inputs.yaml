@@ -1,0 +1,12 @@
+input:
+  - class: File
+    path: "../biometrics_extract_0.2.5/test.pk"
+  - class: File
+    path: "../biometrics_extract_0.2.5/test2.pk"
+database: null
+prefix: 'test'
+outdir: null
+plot: true
+no_db_comparison: false
+threads: null
+discordance_threshold: null

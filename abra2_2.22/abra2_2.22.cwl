@@ -193,13 +193,15 @@ arguments:
         }
         else if (!inputs.memory_per_job && inputs.memory_overhead) {
 
-          return "-Xmx20G"
+          return "-Xmx48G"
         }
         else {
 
-          return "-Xmx20G"
+          return "-Xmx48G"
         }
       }
+  - position: 0
+    valueFrom: '-XX:-UseGCOverheadLimit'
   - position: 0
     prefix: '-jar'
     valueFrom: /usr/local/bin/abra2.jar
@@ -209,7 +211,7 @@ arguments:
       ${
           if(inputs.number_of_threads)
               return inputs.number_of_threads
-          return runtime.cores
+          return (runtime.cores - 8)
       }
   - position: 0
     prefix: '--tmpdir'
@@ -221,8 +223,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 60000
-    coresMin: 16
+    ramMin: 72000
+    coresMin: 24
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/abra2:2.22'
   - class: InlineJavascriptRequirement

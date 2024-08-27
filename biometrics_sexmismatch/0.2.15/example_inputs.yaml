@@ -1,0 +1,10 @@
+input:
+  - class: File
+    path: "../biometrics_extract_0.2.5/test.pk"
+  - class: File
+    path: "../biometrics_extract_0.2.5/test2.pk"
+database: null
+coverage_threshold: null
+prefix: null
+json: true
+no_db_comparison: null

@@ -1,0 +1,9 @@
+input_t_fsvile:
+  class: File
+  path: /path/to/input/file.bed
+input_maf:
+  class: File
+  path: /path/to/input/file.maf
+output_column_name: cname
+output_maf_name: output.maf
+Separator: tsv

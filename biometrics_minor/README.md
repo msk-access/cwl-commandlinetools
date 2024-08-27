@@ -2,7 +2,7 @@
 
 | Tool | Latest version | Location |
 |--- |--- |--- |
-| biometrics   | 0.2.12   |  <https://github.com/msk-access/biometrics> |
+| biometrics   | 0.2.15   |  <https://github.com/msk-access/biometrics> |
 
 The python package source code and Docker file are located on GitHub.
 
