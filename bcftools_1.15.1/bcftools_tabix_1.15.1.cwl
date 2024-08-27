@@ -38,8 +38,8 @@ outputs:
 label: tabix
 requirements:
   - class: ResourceRequirement
-    ramMin: 4000
-    coresMin: 1
+    ramMin: 24000
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bcftools:1.15.1'
   - class: InitialWorkDirRequirement

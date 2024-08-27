@@ -425,11 +425,11 @@ arguments:
     valueFrom: '$(inputs.input.basename.replace(''sam'', ''bam''))'
   - position: 0
     prefix: '--threads'
-    valueFrom: $(runtime.cores)
+    valueFrom: $(runtime.cores - 4)
 requirements:
   - class: ResourceRequirement
-    ramMin: 32000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'quay.io/cancercollaboratory/dockstore-tool-samtools-view:1.0'
   - class: InlineJavascriptRequirement

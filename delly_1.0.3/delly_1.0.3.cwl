@@ -106,8 +106,8 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 40000
-    coresMin: 4
+    ramMin: 48000
+    coresMin: 8
 hints:
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/delly:1.0.3'
@@ -128,4 +128,4 @@ hints:
 'doap:release':
   - class: 'doap:Version'
     'doap:name': delly
-    'doap:revision': 1.0.3 
+    'doap:revision': 1.0.3

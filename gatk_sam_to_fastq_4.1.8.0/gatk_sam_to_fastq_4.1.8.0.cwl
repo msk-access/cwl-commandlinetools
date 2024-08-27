@@ -57,7 +57,7 @@ inputs:
       When performing clipping with the CLIPPING_ATTRIBUTE and CLIPPING_ACTION
       parameters, ensure that the resulting reads after clipping are at least
       CLIPPING_MIN_LENGTH bases long. If the original read is shorter than
-      CLIPPING_MIN_LENGTH then the original read length will be maintained. 
+      CLIPPING_MIN_LENGTH then the original read length will be maintained.
       Default value: 0.
   - id: compress_outputs_per_rg
     type: boolean?
@@ -75,7 +75,7 @@ inputs:
       position: 0
       prefix: '--COMPRESSION_LEVEL'
     doc: >-
-      Compression level for all compressed files created (e.g. BAM and VCF). 
+      Compression level for all compressed files created (e.g. BAM and VCF).
       Default value: 2.
   - id: create_index
     type: boolean?
@@ -83,7 +83,7 @@ inputs:
       position: 0
       prefix: '--CREATE_INDEX'
     doc: >-
-      Whether to create a BAM index when writing a coordinate-sorted BAM file. 
+      Whether to create a BAM index when writing a coordinate-sorted BAM file.
       Default value: false. Possible values: {true, false}
   - id: include_non_pf_reads
     type: boolean?
@@ -141,7 +141,7 @@ inputs:
       position: 0
       prefix: '--CREATE_MD5_FILE'
     doc: >-
-      Whether to create an MD5 digest for any BAM or FASTQ files created.   
+      Whether to create an MD5 digest for any BAM or FASTQ files created.
       Default value: false. Possible values: {true, false}.
   - id: output_per_rg
     type: boolean?
@@ -150,7 +150,7 @@ inputs:
       prefix: '--OUTPUT_PER_RG'
     doc: >-
       Output a FASTQ file per read group (two FASTQ files per read group if the
-      group is paired).  Default value: false. Possible values: {true, false} 
+      group is paired).  Default value: false. Possible values: {true, false}
       Cannot be used in conjunction with argument(s) FASTQ (F) SECOND_END_FASTQ
       (F2) UNPAIRED_FASTQ (FU)
   - id: quality
@@ -177,8 +177,8 @@ inputs:
       prefix: '--READ1_MAX_BASES_TO_WRITE'
     doc: >-
       The maximum number of bases to write from read 1 after trimming. If there
-      are fewer than this many bases left after trimming, all will be written. 
-      If this value is null then all bases left after trimming will be written. 
+      are fewer than this many bases left after trimming, all will be written.
+      If this value is null then all bases left after trimming will be written.
       Default value: null.
   - id: read1_trim
     type: int?
@@ -195,8 +195,8 @@ inputs:
       prefix: '--READ2_MAX_BASES_TO_WRITE'
     doc: >-
       The maximum number of bases to write from read 2 after trimming. If there
-      are fewer than this many bases left after trimming, all will be written. 
-      If this value is null then all bases left after trimming will be written. 
+      are fewer than this many bases left after trimming, all will be written.
+      If this value is null then all bases left after trimming will be written.
       Default value: null.
   - id: read2_trim
     type: int?
@@ -309,10 +309,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx15G"
+          return "-Xmx24G"
         }
         else {
-            return "-Xmx15G"
+            return "-Xmx24G"
         }
       }
   - position: 0
@@ -335,8 +335,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 2
+    ramMin: 48000
+    coresMin: 16
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.0'
   - class: InlineJavascriptRequirement

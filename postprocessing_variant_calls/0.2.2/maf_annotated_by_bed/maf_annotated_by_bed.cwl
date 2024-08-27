@@ -43,12 +43,12 @@ outputs:
     type: File
     outputBinding:
       glob: |-
-        ${ 
-            if (inputs.output_filename) { 
-                return inputs.output_filename 
-            } else { 
-                return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed.maf') 
-            } 
+        ${
+            if (inputs.output_filename) {
+                return inputs.output_filename
+            } else {
+                return inputs.input_maf.basename.replace('.maf', '_mafAnnotatedByBed.maf')
+            }
         }
 label: maf_annotated_by_bed
 arguments:
@@ -67,8 +67,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 2
+    ramMin: 16000
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.2.2'
   - class: InlineJavascriptRequirement

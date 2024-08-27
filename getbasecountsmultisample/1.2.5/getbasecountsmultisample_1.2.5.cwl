@@ -128,12 +128,12 @@ arguments:
       $('--bam_fof bam_fof.tsv')
   - position: 0
     prefix: '--thread'
-    valueFrom: $(runtime.cores)
+    valueFrom: $(runtime.cores - 3)
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
     ramMin: 16000
-    coresMin: 2
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gbcms:1.2.5'
   - class: InitialWorkDirRequirement

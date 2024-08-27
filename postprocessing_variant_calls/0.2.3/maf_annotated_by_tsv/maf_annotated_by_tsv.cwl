@@ -54,12 +54,12 @@ outputs:
     type: File?
     outputBinding:
       glob: |-
-        ${ 
-            if (inputs.output_maf_name) { 
-                return inputs.output_maf_name 
-            } else { 
-                return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf') 
-            } 
+        ${
+            if (inputs.output_maf_name) {
+                return inputs.output_maf_name
+            } else {
+                return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf')
+            }
         }
 label: pv_maf_annotatedByTsv
 arguments:
@@ -69,17 +69,17 @@ arguments:
   - position: 2
     prefix: '--output'
     valueFrom: |-
-      ${ 
-          if (inputs.output_maf_name) { 
-              return inputs.output_maf_name 
-          } else { 
-              return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf') 
-          } 
+      ${
+          if (inputs.output_maf_name) {
+              return inputs.output_maf_name
+          } else {
+              return inputs.input_maf.basename.replace('.maf', '_maftagcmoCh.maf')
+          }
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 8000
-    coresMin: 2
+    ramMin: 16000
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.2.3'
   - class: InlineJavascriptRequirement

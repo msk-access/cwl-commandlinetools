@@ -82,12 +82,12 @@ arguments:
       ${
           if(inputs.number_of_threads)
               return inputs.number_of_threads
-          return runtime.cores
+          return (runtime.cores - 4)
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 25000
-    coresMin: 6
+    ramMin: 32000
+    coresMin: 8
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/athena:1.4.2'
   - class: InlineJavascriptRequirement

@@ -297,7 +297,7 @@ label: bwa_mem_0.7.17
 arguments:
   - position: 0
     prefix: '-t'
-    valueFrom: $(runtime.cores)
+    valueFrom: $(runtime.cores - 4)
   - position: 0
     prefix: '-R'
     valueFrom: |-
@@ -320,8 +320,8 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 34000
-    coresMin: 16
+    ramMin: 48000
+    coresMin: 24
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bwa:0.7.17'
   - class: InlineJavascriptRequirement
