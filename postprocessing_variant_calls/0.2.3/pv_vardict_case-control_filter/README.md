@@ -30,6 +30,13 @@
 ### Usage
 
 ```shell
-usage: 
-
+usage: pv_vardict_case-control_filter.cwl
+       [-h] [--memory_per_job MEMORY_PER_JOB]
+       [--memory_overhead MEMORY_OVERHEAD]
+       [--number_of_threads NUMBER_OF_THREADS] --inputVCF INPUTVCF
+       --tsampleName TSAMPLENAME --alleledepth ALLELEDEPTH
+       [--totalDepth TOTALDEPTH] [--tnRatio TNRATIO]
+       [--variantFraction VARIANTFRACTION] [--minQual MINQUAL]
+       [--filterGermline]
+       [job_order]
 ```
