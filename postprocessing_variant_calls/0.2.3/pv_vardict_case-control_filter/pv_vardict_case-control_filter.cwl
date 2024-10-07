@@ -77,11 +77,11 @@ outputs:
   - id: vcf_complex
     type: File
     outputBinding:
-      glob: '*_STDfilter_complex.vcf'
+      glob: '*_STDfilter_complex_sorted.vcf'
   - id: vcf
     type: File
     outputBinding:
-      glob: '*_STDfilter.vcf'
+      glob: '*_STDfilter_sorted.vcf'
 arguments:
   - vardict
   - case-control
@@ -94,7 +94,7 @@ requirements:
   - class: InlineJavascriptRequirement
 hints:
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.1.5'
+    dockerPull: 'ghcr.io/msk-access/postprocessing_variant_calls:0.2.3'
 'dct:contributor':
   - class: 'foaf:Organization'
     'foaf:member':
