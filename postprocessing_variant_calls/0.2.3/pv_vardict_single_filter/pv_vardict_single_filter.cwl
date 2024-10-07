@@ -77,11 +77,11 @@ outputs:
   - id: vcf_complex
     type: File
     outputBinding:
-      glob: '*_STDfilter_complex_sort.vcf'
+      glob: '*_STDfilter_complex_sorted.vcf'
   - id: vcf
     type: File
     outputBinding:
-      glob: '*_STDfilter_sort.vcf'
+      glob: '*_STDfilter_sorted.vcf'
 arguments:
   - vardict
   - single
