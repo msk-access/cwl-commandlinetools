@@ -1,0 +1,8 @@
+inputVCF:  {class: File, path: path/tests/case-controll_test.vcf}
+tsampleName: "tumorSampleName"  
+alleledepth: 1
+totalDepth: 20 
+tnRatio: 1 
+variantFraction: 5e-05 
+minQual: 0 
+filterGermline: False
