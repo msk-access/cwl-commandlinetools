@@ -1,0 +1,13 @@
+read1_input:
+  class: File
+  path: "./test_data/R1.fq"
+read2_input:
+  class: File
+  path: "./test_data/R2.fq"
+read1_output_path: "./R1.output"
+read2_output_path: "./R2.output"
+read1_adapter_sequence: "GATCGGAAGAGC"
+read2_adapter_sequence: "AGATCGGAAGAGC"
+minimum_read_length: 25
+json_output_path: "sample_name.json"
+html_output_path: "sample_name.html"
