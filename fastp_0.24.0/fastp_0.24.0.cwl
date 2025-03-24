@@ -232,7 +232,7 @@ requirements:
     ramMin: 24000
     coresMin: 8
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/fastp:0.20.1--h8b12597_0'
+    dockerPull: 'ghcr.io/msk-access/fastp:0.24.0--heae3180_1'
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
