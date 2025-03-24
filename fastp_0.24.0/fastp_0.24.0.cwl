@@ -108,7 +108,7 @@ inputs:
       prefix: '--trim_tail1'
     doc: >-
       trimming how many bases in tail for read1, default is 0 (int [=0])
-  - id: --trim_tail2
+  - id: trim_tail2
     type: int?
     inputBinding:
       position: 0
