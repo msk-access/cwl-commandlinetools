@@ -183,6 +183,8 @@ inputs:
     inputBinding:
       position: 0
       prefix: '--disable_length_filtering'
+    doc: >-
+      length filtering is enabled by default. If this option is specified, length filtering is disabled
   - id: verbose
     type: File?
     inputBinding:
