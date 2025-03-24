@@ -93,5 +93,6 @@ options:
   --dont_eval_duplication
                         don't evaluate duplication rate to save time and use less memory.
   --disable_length_filtering
+                        length filtering is enabled by default. If this option is specified, length filtering is disabled
   --verbose VERBOSE     output verbose log information (i.e. when every 1M reads are processed)
 ```
