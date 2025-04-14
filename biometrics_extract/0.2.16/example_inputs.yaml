@@ -1,0 +1,24 @@
+sample_type:
+  - "Normal"
+sample_sex:
+  - "M"
+sample_name:
+  - "test"
+sample_group:
+  - "test"
+fafile:
+  class: File
+  path: /path/to/fasta
+sample_bam:
+  - class: File
+    path: /path/to/bam
+bed_file: null
+vcf_file:
+  class: File
+  path: /path/to/vcf
+database: null
+min_mapping_quality: null
+min_base_quality: null
+min_coverage: null
+min_homozygous_thresh: null
+default_genotype: null
