@@ -77,7 +77,7 @@ requirements:
     ramMin: 16000
     coresMin: 4
   - class: DockerRequirement
-    dockerPull: 'ghcr.io/msk-access/snpsift:5.0'
+    dockerPull: 'ghcr.io/msk-access/snpsift_toil_8:5.0'
   - class: InlineJavascriptRequirement
 stdout: >-
   ${      if (inputs.output_file_name) {          return
