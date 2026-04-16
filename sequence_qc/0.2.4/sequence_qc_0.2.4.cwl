@@ -122,7 +122,7 @@ outputs:
 requirements:
   - class: ResourceRequirement
     ramMin: 16000
-    coresMin: 4
+    coresMin: 2
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/sequence_qc:0.2.4'
   - class: InlineJavascriptRequirement

@@ -99,7 +99,7 @@ outputs:
 requirements:
   - class: ResourceRequirement
     ramMin: 24000
-    coresMin: 4
+    coresMin: 2
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/biometrics:0.2.15'
   - class: InlineJavascriptRequirement

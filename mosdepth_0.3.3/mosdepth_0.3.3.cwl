@@ -113,7 +113,7 @@ requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
     ramMin: 24000
-    coresMin: 8
+    coresMin: 4
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/mosdepth:0.3.3'
   - class: InlineJavascriptRequirement
