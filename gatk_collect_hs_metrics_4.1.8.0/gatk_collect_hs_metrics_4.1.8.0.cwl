@@ -293,7 +293,7 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 48000
+    ramMin: 30000
     coresMin: 2
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.0'
