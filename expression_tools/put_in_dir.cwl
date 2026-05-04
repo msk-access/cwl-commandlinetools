@@ -86,6 +86,8 @@ requirements:
   - class: ResourceRequirement
     ramMin: 2000
     coresMin: 1
+    outdirMin: 20480
+    tmpdirMin: 20480
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
