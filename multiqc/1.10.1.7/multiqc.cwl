@@ -55,6 +55,8 @@ hints:
   - class: ResourceRequirement
     ramMin: 16000
     coresMin: 4
+    outdirMin: 51200
+    tmpdirMin: 51200
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/multiqc:v1.10.1.7'
 requirements:
