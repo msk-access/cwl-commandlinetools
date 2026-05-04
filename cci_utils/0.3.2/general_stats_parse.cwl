@@ -43,6 +43,8 @@ requirements:
   - class: ResourceRequirement
     ramMin: 24000
     coresMin: 3
+    outdirMin: 10240
+    tmpdirMin: 10240
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.directory)
