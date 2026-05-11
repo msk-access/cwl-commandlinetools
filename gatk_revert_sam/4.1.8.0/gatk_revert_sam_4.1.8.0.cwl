@@ -289,6 +289,8 @@ requirements:
   - class: ResourceRequirement
     ramMin: 30000
     coresMin: 2
+    outdirMin: 51200
+    tmpdirMin: 51200
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.0'
   - class: InlineJavascriptRequirement
