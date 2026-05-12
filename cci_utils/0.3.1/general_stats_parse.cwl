@@ -46,7 +46,6 @@ requirements:
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.directory)
-        writable: true
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'

@@ -196,6 +196,7 @@ requirements:
   - class: ResourceRequirement
     ramMin: 24000
     coresMin: 8
+    outdirMin: 20480
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fastp:0.20.1--h8b12597_0'
   - class: InlineJavascriptRequirement

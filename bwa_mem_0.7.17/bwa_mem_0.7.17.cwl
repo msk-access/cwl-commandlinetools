@@ -322,6 +322,7 @@ requirements:
   - class: ResourceRequirement
     ramMin: 48000
     coresMin: 24
+    outdirMin: 131072
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bwa:0.7.17'
   - class: InlineJavascriptRequirement

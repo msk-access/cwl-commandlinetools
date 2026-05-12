@@ -225,6 +225,7 @@ requirements:
   - class: ResourceRequirement
     ramMin: 72000
     coresMin: 36
+    outdirMin: 15360
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/abra2:2.22'
   - class: InlineJavascriptRequirement

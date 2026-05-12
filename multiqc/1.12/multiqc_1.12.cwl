@@ -69,7 +69,6 @@ requirements:
   - class: InitialWorkDirRequirement
     listing:
       - entry: $(inputs.qc_files_dir)
-        writable: true
   - class: InlineJavascriptRequirement
 'dct:contributor':
   - class: 'foaf:Organization'
