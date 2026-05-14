@@ -40,7 +40,7 @@ inputs:
     secondaryFiles:
       - .fai
   - id: targets
-    type: File
+    type: File?
     inputBinding:
       position: 0
       prefix: '--targets'
