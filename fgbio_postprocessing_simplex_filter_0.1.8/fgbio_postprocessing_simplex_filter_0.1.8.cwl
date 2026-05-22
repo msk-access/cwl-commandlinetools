@@ -48,6 +48,7 @@ requirements:
   - class: ResourceRequirement
     ramMin: 24000
     coresMin: 8
+    outdirMin: 20480
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio_postprocessing:0.2.1'
   - class: InlineJavascriptRequirement
