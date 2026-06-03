@@ -223,7 +223,22 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 72000
+    ramMin: |-
+      ${
+        var bam_size_bytes = Array.isArray(inputs.input_bam)
+          ? inputs.input_bam.reduce(function(t, f) { return t + f.size; }, 0)
+          : inputs.input_bam.size;
+        var bam_mb = bam_size_bytes / (1024 * 1024);
+        var base = Math.max(50000, Math.round(bam_mb * 10) + 20000);
+        if (inputs.memory_per_job && inputs.memory_overhead)
+          return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
+        else if (inputs.memory_per_job)
+          return Math.max(base, inputs.memory_per_job);
+        else if (inputs.memory_overhead)
+          return base + inputs.memory_overhead;
+        else
+          return base;
+      }
     coresMin: 36
     outdirMin: 15360
   - class: DockerRequirement
