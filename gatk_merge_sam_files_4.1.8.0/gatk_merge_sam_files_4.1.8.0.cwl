@@ -118,6 +118,7 @@ inputs:
       queryname, coordinate, duplicate, unknown}
   - id: use_threading
     type: boolean?
+    default: true
     inputBinding:
       position: 1
       prefix: '--USE_THREADING'
