@@ -237,7 +237,20 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 48000
+    ramMin: |-
+      ${
+        var total_bytes = inputs.input.reduce(function(t, f) { return t + f.size; }, 0);
+        var bam_mb = total_bytes / (1024 * 1024);
+        var base = Math.max(48000, Math.round(bam_mb * 6) + 8000);
+        if (inputs.memory_per_job && inputs.memory_overhead)
+          return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
+        else if (inputs.memory_per_job)
+          return Math.max(base, inputs.memory_per_job);
+        else if (inputs.memory_overhead)
+          return base + inputs.memory_overhead;
+        else
+          return base;
+      }
     coresMin: 16
     outdirMin: 122880
     tmpdirMin: 40960
