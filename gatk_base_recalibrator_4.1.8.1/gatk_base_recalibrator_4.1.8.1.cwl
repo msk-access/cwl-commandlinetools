@@ -328,7 +328,7 @@ requirements:
     ramMin: |-
       ${
         var bam_mb = inputs.input.size / (1024 * 1024);
-        var base = Math.max(48000, Math.round(bam_mb * 6) + 8000);
+        var base = Math.min(Math.max(48000, Math.round(bam_mb * 6) + 8000), 240000);
         if (inputs.memory_per_job && inputs.memory_overhead)
           return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
         else if (inputs.memory_per_job)

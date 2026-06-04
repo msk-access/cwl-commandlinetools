@@ -229,7 +229,7 @@ requirements:
           ? inputs.input_bam.reduce(function(t, f) { return t + f.size; }, 0)
           : inputs.input_bam.size;
         var bam_mb = bam_size_bytes / (1024 * 1024);
-        var base = Math.max(50000, Math.round(bam_mb * 10) + 20000);
+        var base = Math.min(Math.max(50000, Math.round(bam_mb * 10) + 20000), 240000);
         if (inputs.memory_per_job && inputs.memory_overhead)
           return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
         else if (inputs.memory_per_job)
