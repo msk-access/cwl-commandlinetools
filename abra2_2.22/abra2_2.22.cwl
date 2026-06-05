@@ -193,11 +193,15 @@ arguments:
         }
         else if (!inputs.memory_per_job && inputs.memory_overhead) {
 
-          return "-Xmx64G"
+          var bam_bytes_xmx = Array.isArray(inputs.input_bam) ? inputs.input_bam.reduce(function(t, f) { return t + f.size; }, 0) : inputs.input_bam.size;
+          var xmx_mb = Math.min(Math.max(40000, Math.round(bam_bytes_xmx / (1024 * 1024) * 9) + 18000), 180000);
+          return "-Xmx" + Math.floor(xmx_mb / 1000).toString() + "G"
         }
         else {
 
-          return "-Xmx64G"
+          var bam_bytes_xmx = Array.isArray(inputs.input_bam) ? inputs.input_bam.reduce(function(t, f) { return t + f.size; }, 0) : inputs.input_bam.size;
+          var xmx_mb = Math.min(Math.max(40000, Math.round(bam_bytes_xmx / (1024 * 1024) * 9) + 18000), 180000);
+          return "-Xmx" + Math.floor(xmx_mb / 1000).toString() + "G"
         }
       }
   - position: 0
@@ -229,7 +233,7 @@ requirements:
           ? inputs.input_bam.reduce(function(t, f) { return t + f.size; }, 0)
           : inputs.input_bam.size;
         var bam_mb = bam_size_bytes / (1024 * 1024);
-        var base = Math.min(Math.max(50000, Math.round(bam_mb * 10) + 20000), 240000);
+        var base = Math.min(Math.max(50000, Math.round(bam_mb * 15) + 30000), 240000);
         if (inputs.memory_per_job && inputs.memory_overhead)
           return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
         else if (inputs.memory_per_job)
