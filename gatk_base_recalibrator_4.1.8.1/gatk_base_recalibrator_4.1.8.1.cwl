@@ -300,9 +300,9 @@ arguments:
                   return "-Xmx" + Math.floor((inputs.memory_per_job/1000)).toString() + "G"
               }
            } else if(!inputs.memory_per_job && inputs.memory_overhead){
-              return "-Xmx24G"
+              return "-Xmx" + Math.floor((runtime.ram - inputs.memory_overhead) / 1000).toString() + "G"
            } else {
-              return "-Xmx24G"
+              return "-Xmx" + Math.floor((runtime.ram - 8000) / 1000).toString() + "G"
            }
       }
   - position: 2
