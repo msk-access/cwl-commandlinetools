@@ -194,10 +194,30 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 24000
+    ramMin: |-
+      ${
+        var fq_mb = (inputs.read1_input.size + (inputs.read2_input ? inputs.read2_input.size : 0)) / (1024 * 1024);
+        var base = Math.min(Math.max(24000, Math.round(fq_mb * 2) + 8000), 240000);
+        if (inputs.memory_per_job && inputs.memory_overhead)
+          return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
+        else if (inputs.memory_per_job)
+          return Math.max(base, inputs.memory_per_job);
+        else if (inputs.memory_overhead)
+          return base + inputs.memory_overhead;
+        else
+          return base;
+      }
     coresMin: 8
-    outdirMin: 20480
-    tmpdirMin: 10240
+    outdirMin: |-
+      ${
+        var fq_mb = (inputs.read1_input.size + (inputs.read2_input ? inputs.read2_input.size : 0)) / (1024 * 1024);
+        return Math.min(Math.max(20480, Math.round(fq_mb * 2) + 8000), 240000);
+      }
+    tmpdirMin: |-
+      ${
+        var fq_mb = (inputs.read1_input.size + (inputs.read2_input ? inputs.read2_input.size : 0)) / (1024 * 1024);
+        return Math.min(Math.max(10240, Math.round(fq_mb * 1) + 4000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fastp:0.20.1--h8b12597_0'
   - class: InlineJavascriptRequirement

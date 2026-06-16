@@ -244,6 +244,22 @@ requirements:
           return base;
       }
     coresMin: 36
+    outdirMin: |-
+      ${
+        var bam_size_bytes = Array.isArray(inputs.input_bam)
+          ? inputs.input_bam.reduce(function(t, f) { return t + f.size; }, 0)
+          : inputs.input_bam.size;
+        var bam_mb = bam_size_bytes / (1024 * 1024);
+        return Math.min(Math.max(15360, Math.round(bam_mb * 3) + 10000), 240000);
+      }
+    tmpdirMin: |-
+      ${
+        var bam_size_bytes = Array.isArray(inputs.input_bam)
+          ? inputs.input_bam.reduce(function(t, f) { return t + f.size; }, 0)
+          : inputs.input_bam.size;
+        var bam_mb = bam_size_bytes / (1024 * 1024);
+        return Math.min(Math.max(15360, Math.round(bam_mb * 2) + 10000), 240000);
+      }
     outdirMin: 15360
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/abra2:2.22'

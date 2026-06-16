@@ -546,8 +546,20 @@ requirements:
           return base;
       }
     coresMin: 16
-    outdirMin: 40960
-    tmpdirMin: 40960
+    outdirMin: |-
+      ${
+        var aligned_bytes = 0;
+        if (inputs.aligned_bam) aligned_bytes = inputs.aligned_bam.reduce(function(t, f) { return t + f.size; }, 0);
+        var bam_mb = (inputs.unmapped_bam.size + aligned_bytes) / (1024 * 1024);
+        return Math.min(Math.max(40960, Math.round(bam_mb * 2) + 8000), 240000);
+      }
+    tmpdirMin: |-
+      ${
+        var aligned_bytes = 0;
+        if (inputs.aligned_bam) aligned_bytes = inputs.aligned_bam.reduce(function(t, f) { return t + f.size; }, 0);
+        var bam_mb = (inputs.unmapped_bam.size + aligned_bytes) / (1024 * 1024);
+        return Math.min(Math.max(20480, Math.round(bam_mb * 1) + 8000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.0'
   - class: InlineJavascriptRequirement

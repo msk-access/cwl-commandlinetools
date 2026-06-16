@@ -215,7 +215,16 @@ requirements:
           return base;
       }
     coresMin: 24
-    outdirMin: 15360
+    outdirMin: |-
+      ${
+        var bam_mb = inputs.input.size / (1024 * 1024);
+        return Math.min(Math.max(15360, Math.round(bam_mb * 1) + 8000), 240000);
+      }
+    tmpdirMin: |-
+      ${
+        var bam_mb = inputs.input.size / (1024 * 1024);
+        return Math.min(Math.max(15360, Math.round(bam_mb * 1) + 8000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio:1.2.0'
   - class: InlineJavascriptRequirement

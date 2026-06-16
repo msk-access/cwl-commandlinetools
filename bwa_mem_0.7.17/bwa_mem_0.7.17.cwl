@@ -320,9 +320,25 @@ arguments:
       }
 requirements:
   - class: ResourceRequirement
-    ramMin: 48000
+    ramMin: |-
+      ${
+        var fq_mb = inputs.reads.reduce(function(t, f) { return t + f.size; }, 0) / (1024 * 1024);
+        var base = Math.min(Math.max(48000, Math.round(fq_mb * 1) + 8000), 240000);
+        if (inputs.memory_per_job && inputs.memory_overhead)
+          return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
+        else if (inputs.memory_per_job)
+          return Math.max(base, inputs.memory_per_job);
+        else if (inputs.memory_overhead)
+          return base + inputs.memory_overhead;
+        else
+          return base;
+      }
     coresMin: 24
-    outdirMin: 131072
+    outdirMin: |-
+      ${
+        var fq_mb = inputs.reads.reduce(function(t, f) { return t + f.size; }, 0) / (1024 * 1024);
+        return Math.min(Math.max(131072, Math.round(fq_mb * 4) + 20000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/bwa:0.7.17'
   - class: InlineJavascriptRequirement

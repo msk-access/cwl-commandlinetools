@@ -46,9 +46,25 @@ outputs:
 label: fgbio_postprocessing_simplex_filter_0.1.8
 requirements:
   - class: ResourceRequirement
-    ramMin: 24000
+    ramMin: |-
+      ${
+        var bam_mb = inputs.input_bam.size / (1024 * 1024);
+        var base = Math.min(Math.max(24000, Math.round(bam_mb * 2) + 8000), 240000);
+        if (inputs.memory_per_job && inputs.memory_overhead)
+          return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
+        else if (inputs.memory_per_job)
+          return Math.max(base, inputs.memory_per_job);
+        else if (inputs.memory_overhead)
+          return base + inputs.memory_overhead;
+        else
+          return base;
+      }
     coresMin: 8
-    outdirMin: 20480
+    outdirMin: |-
+      ${
+        var bam_mb = inputs.input_bam.size / (1024 * 1024);
+        return Math.min(Math.max(20480, Math.round(bam_mb * 2) + 8000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio_postprocessing:0.2.1'
   - class: InlineJavascriptRequirement

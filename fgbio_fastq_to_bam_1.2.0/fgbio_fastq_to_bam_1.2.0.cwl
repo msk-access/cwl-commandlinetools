@@ -199,10 +199,10 @@ arguments:
           }
         }
         else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return "-Xmx24G"
+          return "-Xmx" + Math.floor((runtime.ram - inputs.memory_overhead) / 1000).toString() + "G"
         }
         else {
-            return "-Xmx24G"
+            return "-Xmx" + Math.floor((runtime.ram - 8000) / 1000).toString() + "G"
         }
       }
   - position: 0
@@ -230,10 +230,30 @@ arguments:
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 48000
+    ramMin: |-
+      ${
+        var fq_mb = inputs.input.reduce(function(t, f) { return t + f.size; }, 0) / (1024 * 1024);
+        var base = Math.min(Math.max(48000, Math.round(fq_mb * 6) + 8000), 240000);
+        if (inputs.memory_per_job && inputs.memory_overhead)
+          return Math.max(base, inputs.memory_per_job) + inputs.memory_overhead;
+        else if (inputs.memory_per_job)
+          return Math.max(base, inputs.memory_per_job);
+        else if (inputs.memory_overhead)
+          return base + inputs.memory_overhead;
+        else
+          return base;
+      }
     coresMin: 24
-    outdirMin: 20480
-    tmpdirMin: 20480
+    outdirMin: |-
+      ${
+        var fq_mb = inputs.input.reduce(function(t, f) { return t + f.size; }, 0) / (1024 * 1024);
+        return Math.min(Math.max(20480, Math.round(fq_mb * 2) + 8000), 240000);
+      }
+    tmpdirMin: |-
+      ${
+        var fq_mb = inputs.input.reduce(function(t, f) { return t + f.size; }, 0) / (1024 * 1024);
+        return Math.min(Math.max(20480, Math.round(fq_mb * 2) + 8000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio:1.2.0'
   - class: InlineJavascriptRequirement

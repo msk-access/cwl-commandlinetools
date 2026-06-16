@@ -195,10 +195,10 @@ arguments:
           }
       }
       else if(!inputs.memory_per_job && inputs.memory_overhead){
-          return \"-Xmx24G\"
+          return \"-Xmx\" + Math.floor((runtime.ram - inputs.memory_overhead) / 1000).toString() + \"G\"
       }
       else {
-        return \"-Xmx24G\"
+        return \"-Xmx\" + Math.floor((runtime.ram - 8000) / 1000).toString() + \"G\"
       }
     }"
   - position: 0
@@ -240,8 +240,16 @@ requirements:
           return base;
       }
     coresMin: 16
-    outdirMin: 40960
-    tmpdirMin: 40960
+    outdirMin: |-
+      ${
+        var bam_mb = inputs.input.size / (1024 * 1024);
+        return Math.min(Math.max(40960, Math.round(bam_mb * 2) + 8000), 240000);
+      }
+    tmpdirMin: |-
+      ${
+        var bam_mb = inputs.input.size / (1024 * 1024);
+        return Math.min(Math.max(40960, Math.round(bam_mb * 1) + 8000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.1'
   - class: InlineJavascriptRequirement

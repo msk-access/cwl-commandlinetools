@@ -309,7 +309,16 @@ requirements:
           return base;
       }
     coresMin: 8
-    outdirMin: 30720
+    outdirMin: |-
+      ${
+        var bam_mb = inputs.input.size / (1024 * 1024);
+        return Math.min(Math.max(30720, Math.round(bam_mb * 1) + 8000), 240000);
+      }
+    tmpdirMin: |-
+      ${
+        var bam_mb = inputs.input.size / (1024 * 1024);
+        return Math.min(Math.max(10240, Math.round(bam_mb * 1) + 4000), 240000);
+      }
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.1'
   - class: InlineJavascriptRequirement
