@@ -545,7 +545,7 @@ requirements:
         else
           return base;
       }
-    coresMin: 16
+    coresMin: 2
     outdirMin: |-
       ${
         var aligned_bytes = 0;

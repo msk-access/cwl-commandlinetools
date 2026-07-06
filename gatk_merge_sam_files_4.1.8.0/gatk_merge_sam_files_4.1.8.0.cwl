@@ -251,7 +251,7 @@ requirements:
         else
           return base;
       }
-    coresMin: 16
+    coresMin: 2
     outdirMin: |-
       ${
         var total_bytes = inputs.input.reduce(function(t, f) { return t + f.size; }, 0);

@@ -181,7 +181,7 @@ arguments:
 requirements:
   - class: ResourceRequirement
     ramMin: 48000
-    coresMin: 16
+    coresMin: 2
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.1'
   - class: InlineJavascriptRequirement
