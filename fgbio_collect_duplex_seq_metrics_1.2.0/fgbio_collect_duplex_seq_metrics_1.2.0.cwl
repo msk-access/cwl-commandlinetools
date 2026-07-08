@@ -282,7 +282,7 @@ requirements:
         else
           return base;
       }
-    coresMin: 24
+    coresMin: 2
     outdirMin: 15360
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/fgbio:1.2.0'

@@ -243,7 +243,7 @@ requirements:
         else
           return base;
       }
-    coresMin: 24
+    coresMin: 2
     outdirMin: |-
       ${
         var fq_mb = inputs.input.reduce(function(t, f) { return t + f.size; }, 0) / (1024 * 1024);
