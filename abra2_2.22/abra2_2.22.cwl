@@ -260,7 +260,6 @@ requirements:
         var bam_mb = bam_size_bytes / (1024 * 1024);
         return Math.min(Math.max(15360, Math.round(bam_mb * 2) + 10000), 240000);
       }
-    outdirMin: 15360
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/abra2:2.22'
   - class: InlineJavascriptRequirement
