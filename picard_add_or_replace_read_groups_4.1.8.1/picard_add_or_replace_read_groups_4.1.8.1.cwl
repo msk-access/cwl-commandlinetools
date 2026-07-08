@@ -223,7 +223,7 @@ requirements:
         else
           return base;
       }
-    coresMin: 16
+    coresMin: 2
     outdirMin: |-
       ${
         var bam_mb = inputs.input.size / (1024 * 1024);

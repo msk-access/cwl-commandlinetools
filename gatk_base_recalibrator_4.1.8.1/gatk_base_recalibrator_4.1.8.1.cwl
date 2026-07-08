@@ -338,7 +338,7 @@ requirements:
         else
           return base;
       }
-    coresMin: 16
+    coresMin: 2
     outdirMin: 20480
   - class: DockerRequirement
     dockerPull: 'ghcr.io/msk-access/gatk:4.1.8.1'
